@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TileDefinition" format=3 uid="uid://bpgbijjkmld3g"]
+
+[ext_resource type="Script" uid="uid://ojw4tb6m58fu" path="res://core/tile_definition.gd" id="1_pydyg"]
+
+[resource]
+script = ExtResource("1_pydyg")
+id = &"wall"
+is_accessible = false
+debug_color = Color(0.38928655, 0.38928664, 0.38928658, 1)
+metadata/_custom_type_script = "uid://ojw4tb6m58fu"

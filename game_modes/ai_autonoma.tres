@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GameConfig" format=3 uid="uid://dfmlnc1jkio35"]
+
+[ext_resource type="Script" uid="uid://d2qj3clkpal8e" path="res://core/game_config.gd" id="1_sg3ix"]
+[ext_resource type="Script" uid="uid://bby23lcdblb5l" path="res://core/goal_definition.gd" id="1_thbpy"]
+[ext_resource type="Script" uid="uid://ojw4tb6m58fu" path="res://core/tile_definition.gd" id="2_o5bea"]
+[ext_resource type="Script" uid="uid://dcxnro3l4keqk" path="res://core/behaviors/three_phase_behavior.gd" id="2_vffpb"]
+[ext_resource type="Resource" uid="uid://ckdeuyced1sxm" path="res://tiles/tile_ground.tres" id="5_ymdi5"]
+[ext_resource type="Resource" uid="uid://bpgbijjkmld3g" path="res://tiles/tile_wall.tres" id="6_2x63x"]
+
+[sub_resource type="Resource" id="Resource_341gk"]
+script = ExtResource("1_thbpy")
+metadata/_custom_type_script = "uid://bby23lcdblb5l"
+
+[sub_resource type="Resource" id="Resource_h1rme"]
+script = ExtResource("2_vffpb")
+metadata/_custom_type_script = "uid://dcxnro3l4keqk"
+
+[resource]
+script = ExtResource("1_sg3ix")
+tile_pool = Array[ExtResource("2_o5bea")]([ExtResource("5_ymdi5"), ExtResource("6_2x63x")])
+pawn_behavior = SubResource("Resource_h1rme")
+pawn_pushed_out_policy = 1
+goal = SubResource("Resource_341gk")
+metadata/_custom_type_script = "uid://d2qj3clkpal8e"

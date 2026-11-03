@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TileDefinition" format=3 uid="uid://cv2ud4dpluhs"]
+
+[ext_resource type="Script" uid="uid://ojw4tb6m58fu" path="res://core/tile_definition.gd" id="1_o3xw2"]
+
+[resource]
+script = ExtResource("1_o3xw2")
+id = &"arrow_right"
+kind = 1
+debug_color = Color(0.19456768, 0.8328631, 0.9235038, 1)
+metadata/_custom_type_script = "uid://ojw4tb6m58fu"
