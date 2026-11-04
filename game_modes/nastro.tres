@@ -4,8 +4,6 @@
 [ext_resource type="Script" uid="uid://bby23lcdblb5l" path="res://core/goal_definition.gd" id="1_mtmsg"]
 [ext_resource type="Script" uid="uid://c8csgrb4nprht" path="res://core/behaviors/conveyor_behavior.gd" id="2_0tt3h"]
 [ext_resource type="Script" uid="uid://ojw4tb6m58fu" path="res://core/tile_definition.gd" id="2_ckok3"]
-[ext_resource type="Resource" uid="uid://bafl47hxb5pag" path="res://tiles/tile_arrow_down.tres" id="5_85j83"]
-[ext_resource type="Resource" uid="uid://cv2ud4dpluhs" path="res://tiles/tile_arrow_right.tres" id="6_orw65"]
 [ext_resource type="Resource" uid="uid://ckdeuyced1sxm" path="res://tiles/tile_ground.tres" id="7_ebi3o"]
 [ext_resource type="Resource" uid="uid://bpgbijjkmld3g" path="res://tiles/tile_wall.tres" id="8_0uvmh"]
 
@@ -20,7 +18,7 @@ metadata/_custom_type_script = "uid://c8csgrb4nprht"
 
 [resource]
 script = ExtResource("1_kumlx")
-tile_pool = Array[ExtResource("2_ckok3")]([ExtResource("5_85j83"), ExtResource("6_orw65"), ExtResource("7_ebi3o"), ExtResource("8_0uvmh")])
+tile_pool = Array[ExtResource("2_ckok3")]([ExtResource("7_ebi3o"), ExtResource("8_0uvmh")])
 pawn_behavior = SubResource("Resource_mtmsg")
 pawn_pushed_out_policy = 1
 goal = SubResource("Resource_0tt3h")
