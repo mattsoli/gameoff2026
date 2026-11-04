@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dn7jfpnh4wkue"]
 
 [ext_resource type="Script" uid="uid://01q0nexu72ht" path="res://game.gd" id="1_0xm2m"]
-[ext_resource type="Resource" uid="uid://dfmlnc1jkio35" path="res://game_modes/ai_autonoma.tres" id="2_0xm2m"]
+[ext_resource type="Resource" uid="uid://crngttyyd41d4" path="res://game_modes/nastro.tres" id="2_0xm2m"]
 
 [node name="Main" type="Node2D" unique_id=1738832847]
 script = ExtResource("1_0xm2m")

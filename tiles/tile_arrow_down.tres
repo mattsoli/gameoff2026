@@ -6,5 +6,6 @@
 script = ExtResource("1_qx0pr")
 id = &"arrow_down"
 kind = 1
+direction = 3
 debug_color = Color(0.8722435, 0.73775053, 0, 1)
 metadata/_custom_type_script = "uid://ojw4tb6m58fu"

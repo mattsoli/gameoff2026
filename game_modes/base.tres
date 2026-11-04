@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="GameConfig" format=3 uid="uid://bxsnxgio4l1sp"]
 
+[ext_resource type="Script" uid="uid://bby23lcdblb5l" path="res://core/goal_definition.gd" id="1_coyt5"]
 [ext_resource type="Script" uid="uid://bjvaqsajopxdi" path="res://core/behaviors/auto_forward_behavior.gd" id="1_guim5"]
 [ext_resource type="Script" uid="uid://d2qj3clkpal8e" path="res://core/game_config.gd" id="1_w8frl"]
 [ext_resource type="Script" uid="uid://ojw4tb6m58fu" path="res://core/tile_definition.gd" id="2_guim5"]
@@ -8,6 +9,11 @@
 [ext_resource type="Resource" uid="uid://ckdeuyced1sxm" path="res://tiles/tile_ground.tres" id="5_42pcj"]
 [ext_resource type="Resource" uid="uid://bpgbijjkmld3g" path="res://tiles/tile_wall.tres" id="6_uqhn3"]
 
+[sub_resource type="Resource" id="Resource_dqeol"]
+script = ExtResource("1_coyt5")
+line_index = 3
+metadata/_custom_type_script = "uid://bby23lcdblb5l"
+
 [sub_resource type="Resource" id="Resource_fsp2w"]
 script = ExtResource("1_guim5")
 metadata/_custom_type_script = "uid://bjvaqsajopxdi"
@@ -15,7 +21,7 @@ metadata/_custom_type_script = "uid://bjvaqsajopxdi"
 [resource]
 script = ExtResource("1_w8frl")
 tile_pool = Array[ExtResource("2_guim5")]([ExtResource("3_qi3qn"), ExtResource("4_xnwhb"), ExtResource("5_42pcj"), ExtResource("6_uqhn3")])
-hand_size = 5
 start_cell = Vector2i(0, 0)
 pawn_behavior = SubResource("Resource_fsp2w")
+goal = SubResource("Resource_dqeol")
 metadata/_custom_type_script = "uid://d2qj3clkpal8e"
