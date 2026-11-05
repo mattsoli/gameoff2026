@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="shift-happens"
-run/main_scene="uid://dn7jfpnh4wkue"
+run/main_scene="uid://sy1jvx6tfkjt"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://sy1jvx6tfkjt"]
+
+[ext_resource type="Script" uid="uid://6q4b1jjb07wh" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Resource" uid="uid://bxsnxgio4l1sp" path="res://game_modes/base.tres" id="2_fu7sn"]
+[ext_resource type="Resource" uid="uid://crngttyyd41d4" path="res://game_modes/nastro.tres" id="3_jix8l"]
+
+[node name="main_menu" type="Node" unique_id=1428819363]
+script = ExtResource("1_06t4h")
+base_config = ExtResource("2_fu7sn")
+conveyor_config = ExtResource("3_jix8l")
