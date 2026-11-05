@@ -7,6 +7,9 @@
 [ext_resource type="Resource" uid="uid://cv2ud4dpluhs" path="res://tiles/tile_arrow_right.tres" id="4_xnwhb"]
 [ext_resource type="Resource" uid="uid://ckdeuyced1sxm" path="res://tiles/tile_ground.tres" id="5_42pcj"]
 [ext_resource type="Resource" uid="uid://bpgbijjkmld3g" path="res://tiles/tile_wall.tres" id="6_uqhn3"]
+[ext_resource type="Resource" uid="uid://bstw15pf5il6d" path="res://tiles/tile_arrow_left.tres" id="8_vbd55"]
+[ext_resource type="Resource" uid="uid://dvt50tiia7rbf" path="res://tiles/tile_goal.tres" id="9_boyy4"]
+[ext_resource type="Resource" uid="uid://cbjlonbghq8qf" path="res://tiles/tile_arrow_up.tres" id="10_j2tlb"]
 
 [sub_resource type="Resource" id="Resource_fsp2w"]
 script = ExtResource("1_guim5")
@@ -14,6 +17,7 @@ metadata/_custom_type_script = "uid://bjvaqsajopxdi"
 
 [resource]
 script = ExtResource("1_w8frl")
-tile_pool = Array[ExtResource("2_guim5")]([ExtResource("3_qi3qn"), ExtResource("4_xnwhb"), ExtResource("5_42pcj"), ExtResource("6_uqhn3")])
+tile_pool = Array[ExtResource("2_guim5")]([ExtResource("3_qi3qn"), ExtResource("4_xnwhb"), ExtResource("5_42pcj"), ExtResource("6_uqhn3"), ExtResource("8_vbd55"), ExtResource("9_boyy4"), ExtResource("10_j2tlb")])
 pawn_behavior = SubResource("Resource_fsp2w")
+goal_tile = ExtResource("9_boyy4")
 metadata/_custom_type_script = "uid://d2qj3clkpal8e"

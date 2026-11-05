@@ -24,6 +24,9 @@ enum PawnPushedOutPolicy { WRAP, LOSE }
 
 @export_group("Obiettivo")
 @export var goal: GoalDefinition
+## Tessera obiettivo posizionata dentro la board (Kind.GOAL). Si sposta come le altre.
+@export var goal_tile: TileDefinition
+@export var goal_tile_count: int = 1
 
 @export_group("Generale")
 ## 0 = seed casuale a ogni avvio.

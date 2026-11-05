@@ -55,3 +55,7 @@ func _draw_placeholder(rect: Rect2, half: float) -> void:
 		draw_line(-tip, tip, Color.WHITE, 4.0)
 		draw_line(tip, tip - dir * half * 0.3 + perp * half * 0.25, Color.WHITE, 4.0)
 		draw_line(tip, tip - dir * half * 0.3 - perp * half * 0.25, Color.WHITE, 4.0)
+		
+	if definition.kind == TileDefinition.Kind.GOAL:
+		draw_circle(Vector2.ZERO, half * 0.45, Color.GOLD)
+		draw_arc(Vector2.ZERO, half * 0.45, 0.0, TAU, 24, Color.BLACK, 2.0)

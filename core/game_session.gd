@@ -8,6 +8,7 @@ var pawn: PawnState
 var hand: Array[TileInstance] = []
 var selected_hand_index: int = 0
 var outcome: Outcome = Outcome.PLAYING
+var _spawn_pool: Array[TileDefinition] = []
 
 var _config: GameConfig
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -24,12 +25,14 @@ func _init(config: GameConfig) -> void:
 	else:
 		_rng.seed = config.rng_seed
 
-	board = BoardGenerator.generate(config.board_size, config.tile_pool, _rng)
+	_spawn_pool = _build_spawn_pool(config.tile_pool)
+	board = BoardGenerator.generate(config.board_size, _spawn_pool, _rng)
 	for i: int in config.hand_size:
-		hand.append(BoardGenerator.create_random_tile(config.tile_pool, _rng))
+		hand.append(BoardGenerator.create_random_tile(_spawn_pool, _rng))
 
 	assert(board.is_inside(config.start_cell), "start_cell fuori dalla board")
 	_ensure_accessible_start()
+	_place_goal_tiles()
 	pawn = PawnState.new(config.start_cell, config.start_direction)
 
 
@@ -80,10 +83,14 @@ func play_turn(slot: InsertSlot) -> TurnResult:
 			outcome = Outcome.LOST
 		else:
 			turn.pawn_wrapped = true
-
+			
+	# 3b. La pedina è stata portata dallo shift su una tessera goal?
+	_check_goal_tile()
+	
 	# 4. Comportamento della pedina (specifico della modalità).
 	if outcome == Outcome.PLAYING:
 		_config.pawn_behavior.resolve_turn(self, turn)
+		_check_goal_tile()
 
 	if outcome == Outcome.PLAYING and hand.is_empty():
 		outcome = Outcome.LOST
@@ -146,6 +153,10 @@ func _is_slot_blocked_by_goal(slot: InsertSlot) -> bool:
 
 
 func _update_hand(pushed_out: TileInstance) -> void:
+	if pushed_out.definition.kind == TileDefinition.Kind.GOAL:
+		hand[selected_hand_index] = pushed_out
+		return
+		
 	match _config.pushed_out_tile_policy:
 		GameConfig.PushedOutTilePolicy.RETURN_TO_HAND:
 			hand[selected_hand_index] = pushed_out
@@ -156,6 +167,40 @@ func _update_hand(pushed_out: TileInstance) -> void:
 				hand.remove_at(selected_hand_index)
 				selected_hand_index = clampi(selected_hand_index, 0, maxi(hand.size() - 1, 0))
 
+func _build_spawn_pool(source: Array[TileDefinition]) -> Array[TileDefinition]:
+	var result: Array[TileDefinition] = []
+	for definition: TileDefinition in source:
+		if definition.kind != TileDefinition.Kind.GOAL:
+			result.append(definition)
+	assert(not result.is_empty(), "Il tile_pool non contiene tessere non-goal")
+	return result
+
+
+func _place_goal_tiles() -> void:
+	if _config.goal_tile == null:
+		return
+	assert(_config.goal_tile.kind == TileDefinition.Kind.GOAL, "goal_tile deve avere Kind = GOAL")
+	assert(_config.goal_tile.is_accessible, "goal_tile deve essere accessibile")
+
+	var candidates: Array[Vector2i] = []
+	for y: int in board.size.y:
+		for x: int in board.size.x:
+			var cell: Vector2i = Vector2i(x, y)
+			if cell != _config.start_cell:
+				candidates.append(cell)
+
+	var count: int = mini(_config.goal_tile_count, candidates.size())
+	for i: int in count:
+		var pick: int = _rng.randi_range(0, candidates.size() - 1)
+		board.set_tile(candidates[pick], TileInstance.new(_config.goal_tile))
+		candidates.remove_at(pick)
+
+
+func _check_goal_tile() -> void:
+	if outcome != Outcome.PLAYING:
+		return
+	if board.get_tile(pawn.cell).definition.kind == TileDefinition.Kind.GOAL:
+		outcome = Outcome.WON
 
 func _ensure_accessible_start() -> void:
 	if board.get_tile(_config.start_cell).definition.is_accessible:
