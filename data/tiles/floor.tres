@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TileDefinition" format=3 uid="uid://b1m567jort8ih"]
+
+[ext_resource type="Script" uid="uid://cw13whhvesxmr" path="res://src/settings/tile_definition.gd" id="1_u60f2"]
+
+[resource]
+script = ExtResource("1_u60f2")
+id = &"floor"
+display_name = "Floor"
+accent_color = Color(0.3, 0.33, 0.4, 1)

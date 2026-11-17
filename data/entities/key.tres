@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="KeyDefinition" format=3 uid="uid://bu7vlhgl1ttld"]
+
+[ext_resource type="Script" uid="uid://cl0ohfox0m4pe" path="res://src/settings/key_definition.gd" id="1_qa6lo"]
+
+[resource]
+script = ExtResource("1_qa6lo")
+id = &"key"
+display_name = "Key"
+color = Color(0.95, 0.75, 0.25, 1)
+label = "K"

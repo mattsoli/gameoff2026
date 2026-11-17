@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="LevelDefinition" format=3 uid="uid://d1ncsa3hefa47"]
+
+[ext_resource type="Resource" path="res://data/levels/default_legend.tres" id="1_r1f35"]
+[ext_resource type="Script" uid="uid://cv6c2l4dtfiiv" path="res://src/settings/level_definition.gd" id="2_55y67"]
+
+[resource]
+script = ExtResource("2_55y67")
+display_name = "First test"
+legend = ExtResource("1_r1f35")
+tiles_layout = ". . . # .
+. # . . .
+. . . O .
+G . # . .
+. . . . ."
+entities_layout = "P . . . .
+. . K . .
+. . . . E
+. . . . .
+. C . . ."
+arrows_layout = ". . . . .
+. . . . .
+. . . . v
+. > . . .
+. . . . ."

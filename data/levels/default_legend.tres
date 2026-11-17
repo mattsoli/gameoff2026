@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="LevelLegend" format=3]
+
+[ext_resource type="Script" path="res://src/settings/entity_definition.gd" id="1_emfka"]
+[ext_resource type="Resource" path="res://data/entities/key.tres" id="2_b16yo"]
+[ext_resource type="Resource" path="res://data/entities/chest_armor.tres" id="3_jc335"]
+[ext_resource type="Resource" path="res://data/entities/chest_weapon.tres" id="4_dbm7q"]
+[ext_resource type="Resource" path="res://data/entities/enemy_basic.tres" id="5_df18x"]
+[ext_resource type="Resource" path="res://data/entities/enemy_armored.tres" id="6_i1py4"]
+[ext_resource type="Resource" path="res://data/entities/enemy_disruptor.tres" id="7_av567"]
+[ext_resource type="Script" path="res://src/settings/level_legend.gd" id="8_efyo8"]
+[ext_resource type="Script" path="res://src/settings/tile_definition.gd" id="9_7v1qr"]
+[ext_resource type="Resource" path="res://data/tiles/floor.tres" id="10_muo0n"]
+[ext_resource type="Resource" path="res://data/tiles/wall.tres" id="11_0bw7i"]
+[ext_resource type="Resource" path="res://data/tiles/hole.tres" id="12_3dtku"]
+[ext_resource type="Resource" path="res://data/tiles/goal.tres" id="13_h6r3y"]
+
+[resource]
+script = ExtResource("8_efyo8")
+tiles = Dictionary[String, ExtResource("9_7v1qr")]({
+"#": ExtResource("11_0bw7i"),
+".": ExtResource("10_muo0n"),
+"G": ExtResource("13_h6r3y"),
+"O": ExtResource("12_3dtku")
+})
+entities = Dictionary[String, ExtResource("1_emfka")]({
+"A": ExtResource("6_i1py4"),
+"C": ExtResource("3_jc335"),
+"D": ExtResource("7_av567"),
+"E": ExtResource("5_df18x"),
+"K": ExtResource("2_b16yo"),
+"W": ExtResource("4_dbm7q")
+})

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BonusFacesEffect" format=3 uid="uid://dmvo8k3ay6t8c"]
+
+[ext_resource type="Script" uid="uid://cay1h0lecpq5p" path="res://src/combat/effects/bonus_faces_effect.gd" id="1_wkxdk"]
+
+[resource]
+script = ExtResource("1_wkxdk")
+description = "+1 shield in combat"

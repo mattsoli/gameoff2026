@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EquipmentDefinition" format=3 uid="uid://cm6ggu7ilyt6f"]
+
+[ext_resource type="Script" uid="uid://tfj0p2o5kply" path="res://src/combat/effects/combat_effect.gd" id="1_hkxgo"]
+[ext_resource type="Script" uid="uid://ddw6fgl76vno2" path="res://src/settings/equipment_definition.gd" id="2_bm82o"]
+
+[resource]
+script = ExtResource("2_bm82o")
+id = &"basic_weapon"
+display_name = "Basic weapon"
+bonus_coins = 1
