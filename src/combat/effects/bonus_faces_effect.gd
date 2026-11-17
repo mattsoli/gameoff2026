@@ -1,3 +1,4 @@
+@tool
 class_name BonusFacesEffect
 extends CombatEffect
 ## Aggiunge facce garantite dopo il lancio (es. "+1 scudo in combattimento").

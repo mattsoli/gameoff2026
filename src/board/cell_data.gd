@@ -1,3 +1,4 @@
+@tool
 class_name CellData
 extends RefCounted
 ## Contenuto di una casella: tipo, freccia ed elemento.

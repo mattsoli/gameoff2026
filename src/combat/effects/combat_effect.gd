@@ -1,3 +1,4 @@
+@tool
 class_name CombatEffect
 extends Resource
 ## Classe base per gli effetti aggiuntivi (categoria di nemico o equipaggiamento).

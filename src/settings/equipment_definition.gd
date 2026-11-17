@@ -1,3 +1,4 @@
+@tool
 class_name EquipmentDefinition
 extends Resource
 ## Oggetto equipaggiabile dal giocatore in uno dei due slot.

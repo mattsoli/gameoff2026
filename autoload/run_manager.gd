@@ -2,7 +2,7 @@ extends Node
 ## Autoload "RunManager": stato della partita in corso (giocatore, livello corrente)
 ## e passaggio tra le scene. Le impostazioni si modificano aprendo il file SETTINGS_PATH.
 
-const SETTINGS_PATH: String = "res://data/settings/game_settings.tres"
+const SETTINGS_PATH: String = GameSettings.SETTINGS_PATH
 
 var settings: GameSettings = preload(SETTINGS_PATH)
 
@@ -12,6 +12,8 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 ## Stato del giocatore all'inizio del livello corrente, per il "Riprova".
 var _level_start_snapshot: PlayerState
+## Livello aperto dal pulsante "Test level" del Level Editor (null in una partita normale).
+var _test_level: LevelDefinition
 
 
 func _ready() -> void:
@@ -27,17 +29,26 @@ func start_new_run() -> void:
 	player_state = PlayerState.create(settings.player)
 	current_level_index = 0
 	_level_start_snapshot = null
+	_test_level = null
 	go_to_game()
 
 
-## Permette di avviare direttamente la scena di gioco dall'editor (F6) senza passare dal menu.
+## Permette di avviare direttamente la scena di gioco dall'editor (F6 o "Test level")
+## senza passare dal menu.
 func ensure_run_started() -> void:
 	if player_state == null:
+		_test_level = EditorTestLevel.consume()
 		rng.randomize()
 		player_state = PlayerState.create(settings.player)
 
 
+func is_testing_level() -> bool:
+	return _test_level != null
+
+
 func get_current_level() -> LevelDefinition:
+	if _test_level != null:
+		return _test_level
 	return settings.levels[current_level_index]
 
 
@@ -46,6 +57,8 @@ func get_level_number() -> int:
 
 
 func has_next_level() -> bool:
+	if _test_level != null:
+		return false
 	return current_level_index + 1 < settings.levels.size()
 
 

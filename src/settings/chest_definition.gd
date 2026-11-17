@@ -1,3 +1,4 @@
+@tool
 class_name ChestDefinition
 extends EntityDefinition
 ## Baule: si apre quando la pedina ci entra e assegna la sua ricompensa una sola volta.

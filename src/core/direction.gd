@@ -1,3 +1,4 @@
+@tool
 class_name Direction
 extends RefCounted
 ## Utility per le 4 direzioni cardinali, usate sia dal movimento che dallo shifting.

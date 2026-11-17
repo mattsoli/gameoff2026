@@ -1,6 +1,10 @@
+@tool
 class_name GameSettings
 extends Resource
 ## Punto d'ingresso di tutte le impostazioni di gioco. È assegnata all'autoload RunManager.
+
+## Unico file di impostazioni del gioco (letto da RunManager e dal Level Editor).
+const SETTINGS_PATH: String = "res://data/settings/game_settings.tres"
 
 @export var game_title: String = "Shift Happens"
 @export var player: PlayerDefinition

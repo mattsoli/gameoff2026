@@ -1,3 +1,4 @@
+@tool
 class_name EnemyEntity
 extends BoardEntity
 ## Nemico sulla board. Gli HP persistono se il nemico sopravvive al combattimento.

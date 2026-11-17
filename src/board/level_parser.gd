@@ -1,3 +1,4 @@
+@tool
 class_name LevelParser
 extends RefCounted
 ## Converte una LevelDefinition (layout testuali) in una BoardModel.
@@ -14,14 +15,14 @@ static func parse(level: LevelDefinition) -> ParsedLevel:
 		result.errors.append("Level '%s' has no LevelLegend" % level.display_name)
 		return result
 
-	var tile_rows: PackedStringArray = _split_rows(level.tiles_layout)
+	var tile_rows: PackedStringArray = split_rows(level.tiles_layout)
 	if tile_rows.is_empty():
 		result.errors.append("tiles_layout is empty")
 		return result
 
 	var size: Vector2i = Vector2i(tile_rows[0].length(), tile_rows.size())
-	var entity_rows: PackedStringArray = _split_rows(level.entities_layout)
-	var arrow_rows: PackedStringArray = _split_rows(level.arrows_layout)
+	var entity_rows: PackedStringArray = split_rows(level.entities_layout)
+	var arrow_rows: PackedStringArray = split_rows(level.arrows_layout)
 	_check_layer_size(tile_rows, size, "tiles_layout", false, result)
 	_check_layer_size(entity_rows, size, "entities_layout", false, result)
 	_check_layer_size(arrow_rows, size, "arrows_layout", true, result)
@@ -46,8 +47,8 @@ static func parse(level: LevelDefinition) -> ParsedLevel:
 	return result
 
 
-## Divide il testo in righe ignorando righe vuote e spazi/tab (servono solo a leggere meglio).
-static func _split_rows(text: String) -> PackedStringArray:
+## Divide il testo in righe (usato anche dal Level Editor), ignorando righe vuote e spazi/tab (servono solo a leggere meglio).
+static func split_rows(text: String) -> PackedStringArray:
 	var rows: PackedStringArray = PackedStringArray()
 	for raw_row: String in text.split("\n"):
 		var row: String = raw_row.replace(" ", "").replace("\t", "").replace("\r", "")

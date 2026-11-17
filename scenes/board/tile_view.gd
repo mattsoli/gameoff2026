@@ -3,10 +3,6 @@ extends Node2D
 ## Disegna una casella con freccia ed elemento. L'origine del nodo è il centro della casella.
 ## Usa le texture delle definizioni se presenti, altrimenti un placeholder generico.
 
-const ARROW_SHAPE: PackedVector2Array = [
-	Vector2(-0.32, -0.08), Vector2(0.04, -0.08), Vector2(0.04, -0.2), Vector2(0.32, 0.0),
-	Vector2(0.04, 0.2), Vector2(0.04, 0.08), Vector2(-0.32, 0.08),
-]
 const HATCH_SPACING_RATIO: float = 0.12
 
 var cell_data: CellData
@@ -58,28 +54,13 @@ func _draw_tile(rect: Rect2) -> void:
 	_tile_style.bg_color = tile.color
 	draw_style_box(_tile_style, rect)
 	if tile.pattern == TileDefinition.Pattern.HATCHED:
-		_draw_hatch(rect.grow(-4.0), tile.accent_color)
-
-
-## Righe diagonali ritagliate dentro il rettangolo.
-func _draw_hatch(rect: Rect2, color: Color) -> void:
-	var spacing: float = _tile_size * HATCH_SPACING_RATIO
-	var start: float = rect.position.x + rect.position.y
-	var end: float = rect.end.x + rect.end.y
-	var offset: float = start + spacing
-	while offset < end:
-		var x_from: float = maxf(rect.position.x, offset - rect.end.y)
-		var x_to: float = minf(rect.end.x, offset - rect.position.y)
-		draw_line(Vector2(x_from, offset - x_from), Vector2(x_to, offset - x_to), color, 2.0, true)
-		offset += spacing
+		DrawUtils.draw_hatch(self, rect.grow(-4.0), _tile_size * HATCH_SPACING_RATIO, tile.accent_color)
 
 
 func _draw_goal(rect: Rect2) -> void:
 	var color: Color = cell_data.tile.accent_color
 	var radius: float = rect.size.x * 0.3
-	draw_arc(Vector2.ZERO, radius, 0.0, TAU, 48, color, 5.0, true)
-	draw_arc(Vector2.ZERO, radius * 0.6, 0.0, TAU, 48, color, 5.0, true)
-	draw_circle(Vector2.ZERO, radius * 0.22, color)
+	DrawUtils.draw_goal_rings(self, Vector2.ZERO, radius, color, 5.0)
 	if not _goal_unlocked:
 		_draw_lock(rect.end - Vector2.ONE * rect.size.x * 0.2, rect.size.x * 0.1, color)
 
@@ -104,13 +85,13 @@ func _draw_entity(rect: Rect2) -> void:
 		var color: Color = definition.color
 		color.a = alpha
 		draw_circle(Vector2.ZERO, icon_rect.size.x * 0.5, color, true, -1.0, true)
-		_draw_centered_text(definition.label, Vector2.ZERO, _settings.label_font_size, _settings.label_color)
+		DrawUtils.draw_centered_text(self, definition.label, Vector2.ZERO, _tile_size, _settings.label_font_size, _settings.label_color)
 
 	if entity is EnemyEntity:
 		var enemy: EnemyEntity = entity as EnemyEntity
 		var stats: String = "%d/%d" % [enemy.hp, enemy.get_enemy_definition().max_hp]
 		var stats_position: Vector2 = Vector2(0.0, rect.end.y - _settings.label_font_size * 0.6)
-		_draw_centered_text(stats, stats_position, int(_settings.label_font_size * 0.8), Color.WHITE)
+		DrawUtils.draw_centered_text(self, stats, stats_position, _tile_size, int(_settings.label_font_size * 0.8), Color.WHITE)
 
 
 ## Freccia grande al centro se la casella è vuota, piccola nell'angolo se c'è un elemento.
@@ -120,14 +101,4 @@ func _draw_arrow() -> void:
 	var center: Vector2 = Vector2(_tile_size * 0.28, -_tile_size * 0.28) if has_entity else Vector2.ZERO
 	if has_entity:
 		draw_circle(center, scale_factor * 0.42, _settings.board_color, true, -1.0, true)
-	draw_set_transform(center, Direction.to_angle(cell_data.arrow), Vector2.ONE * scale_factor)
-	draw_colored_polygon(ARROW_SHAPE, _settings.arrow_color)
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-
-
-func _draw_centered_text(text: String, center: Vector2, font_size: int, color: Color) -> void:
-	if text.is_empty():
-		return
-	var font: Font = ThemeDB.fallback_font
-	var baseline: float = center.y + (font.get_ascent(font_size) - font.get_descent(font_size)) * 0.5
-	draw_string(font, Vector2(-_tile_size * 0.5, baseline), text, HORIZONTAL_ALIGNMENT_CENTER, _tile_size, font_size, color)
+	DrawUtils.draw_arrow(self, center, cell_data.arrow, scale_factor, _settings.arrow_color)

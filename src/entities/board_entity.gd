@@ -1,3 +1,4 @@
+@tool
 class_name BoardEntity
 extends RefCounted
 ## Stato runtime di un elemento sulla board. La definizione (dati del Designer)

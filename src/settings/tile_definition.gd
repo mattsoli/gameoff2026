@@ -1,3 +1,4 @@
+@tool
 class_name TileDefinition
 extends Resource
 ## Un tipo di casella della board (calpestabile, muro, buco, obiettivo...).

@@ -1,3 +1,4 @@
+@tool
 class_name EnemyDefinition
 extends EntityDefinition
 ## Nemico: entrare nella sua casella avvia il combattimento.

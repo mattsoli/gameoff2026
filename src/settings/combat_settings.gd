@@ -1,3 +1,4 @@
+@tool
 class_name CombatSettings
 extends Resource
 ## Regole numeriche, aspetto e tempi della schermata di combattimento.

@@ -1,3 +1,4 @@
+@tool
 class_name ChestEntity
 extends BoardEntity
 ## Baule sulla board. Resta sulla casella anche dopo l'apertura (es. per tenere la freccia).

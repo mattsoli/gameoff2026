@@ -1,3 +1,4 @@
+@tool
 class_name LevelLegend
 extends Resource
 ## Associa i simboli usati nei layout testuali dei livelli alle risorse di gioco.

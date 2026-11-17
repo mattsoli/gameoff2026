@@ -1,3 +1,4 @@
+@tool
 class_name KeyDefinition
 extends EntityDefinition
 ## Chiave: raccoglierla sblocca le caselle obiettivo del livello.

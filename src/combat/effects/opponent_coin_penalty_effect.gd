@@ -1,3 +1,4 @@
+@tool
 class_name OpponentCoinPenaltyEffect
 extends CombatEffect
 ## Toglie monete all'avversario prima del lancio (es. "-1 moneta all'avversario").

@@ -1,3 +1,4 @@
+@tool
 class_name BoardVisualSettings
 extends Resource
 ## Aspetto e tempi di animazione della board.

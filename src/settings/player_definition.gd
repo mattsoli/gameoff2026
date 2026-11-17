@@ -1,3 +1,4 @@
+@tool
 class_name PlayerDefinition
 extends Resource
 ## Valori di partenza del giocatore all'inizio di una nuova partita.

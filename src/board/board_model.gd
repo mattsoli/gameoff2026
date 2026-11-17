@@ -1,3 +1,4 @@
+@tool
 class_name BoardModel
 extends RefCounted
 ## Griglia di CellData. Sa solo leggere/scrivere celle e far scorrere righe/colonne:

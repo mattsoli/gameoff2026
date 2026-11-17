@@ -1,3 +1,4 @@
+@tool
 class_name EntityDefinition
 extends Resource
 ## Base per gli elementi che stanno sopra una casella (chiave, nemico, baule...).

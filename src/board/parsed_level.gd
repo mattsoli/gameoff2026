@@ -1,3 +1,4 @@
+@tool
 class_name ParsedLevel
 extends RefCounted
 ## Risultato di LevelParser: la board pronta da giocare oppure la lista degli errori.
