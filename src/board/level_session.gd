@@ -70,7 +70,7 @@ func try_move(direction: Direction.Type) -> MoveResult:
 
 
 ## Applica gli effetti della casella in cui si trova la pedina.
-## Ordine: chiave/baule -> obiettivo -> freccia (lo shift avviene per ultimo).
+## Ordine: chiave/arma -> obiettivo -> freccia (lo shift avviene per ultimo).
 func arrive() -> ArrivalResult:
 	var arrival: ArrivalResult = ArrivalResult.new()
 	arrival.cell = player_cell
@@ -80,11 +80,11 @@ func arrive() -> ArrivalResult:
 		has_key = true
 		data.entity = null
 		arrival.picked_key = true
-	elif data.entity is ChestEntity:
-		var chest: ChestEntity = data.entity as ChestEntity
-		if not chest.is_opened:
-			_open_chest(chest)
-			arrival.opened_chest = chest
+	elif data.entity is WeaponEntity:
+		var weapon: WeaponDefinition = (data.entity as WeaponEntity).get_weapon_definition()
+		player.equip_weapon(weapon)
+		data.entity = null
+		arrival.picked_weapon = weapon
 
 	if data.tile.is_goal:
 		status = Status.WON
@@ -96,34 +96,21 @@ func arrive() -> ArrivalResult:
 	return arrival
 
 
-## Da chiamare a fine combattimento. Restituisce l'ArrivalResult se il nemico è stato
-## sconfitto (la pedina entra nella casella), altrimenti null (la pedina resta dov'era).
+## Da chiamare a fine combattimento. Se vince il giocatore il nemico viene rimosso,
+## la pedina entra nella casella e ne riceve gli effetti (ArrivalResult).
+## Se vince il nemico il livello è perso (LOST) e restituisce null.
 func resolve_combat(combat: CombatResult) -> ArrivalResult:
 	assert(_pending_combat != null, "resolve_combat chiamato senza un combattimento in corso")
 	var move: MoveResult = _pending_combat
 	_pending_combat = null
 
-	player.hp = combat.player_hp
-	move.enemy.hp = combat.enemy_hp
-
-	if not combat.is_player_alive():
+	if not combat.is_player_winner:
 		status = Status.LOST
-		return null
-	if combat.is_enemy_alive():
 		return null
 
 	board.get_cell(move.to).entity = null
-	player.coin_count += move.enemy.get_enemy_definition().coin_reward
 	player_cell = move.to
 	return arrive()
-
-
-func _open_chest(chest: ChestEntity) -> void:
-	chest.is_opened = true
-	var definition: ChestDefinition = chest.get_chest_definition()
-	player.coin_count += definition.reward_coins
-	if definition.reward_equipment != null:
-		player.equip(definition.reward_equipment)
 
 
 func _shift(cell: Vector2i, direction: Direction.Type) -> ShiftResult:

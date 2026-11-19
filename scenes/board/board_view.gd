@@ -22,6 +22,7 @@ var _board_style: StyleBoxFlat = StyleBoxFlat.new()
 var _hovered_cell: Vector2i = INVALID_CELL
 var _reachable_cells: Array[Vector2i] = []
 var _goals_unlocked: bool = false
+var _player_attack: int = 0
 
 
 func setup(board: BoardModel, settings: BoardVisualSettings, player_definition: PlayerDefinition, player_cell: Vector2i) -> void:
@@ -80,6 +81,12 @@ func set_goals_unlocked(value: bool) -> void:
 	_goals_unlocked = value
 	for view: TileView in _tile_views.values():
 		view.set_goal_unlocked(value)
+
+
+## Valore di attacco mostrato sulla pedina (cambia raccogliendo un'arma).
+func set_player_attack(value: int) -> void:
+	_player_attack = value
+	_pawn_view.set_attack(value)
 
 
 ## Ridisegna tutte le caselle (dopo raccolta chiave, apertura baule, combattimento...).
@@ -201,7 +208,8 @@ func _create_tile_view(data: CellData) -> TileView:
 func _create_pawn_view() -> PawnView:
 	var pawn: PawnView = PawnView.new()
 	pawn.z_index = PAWN_Z_INDEX
-	pawn.setup(_player_definition, _tile_size)
+	pawn.setup(_player_definition, _tile_size, _settings.label_font_size)
+	pawn.set_attack(_player_attack)
 	add_child(pawn)
 	return pawn
 

@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://bn4ffy4bk4qgw"]
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3]
 
-[ext_resource type="Script" uid="uid://tfj0p2o5kply" path="res://src/combat/effects/combat_effect.gd" id="1_7f8ie"]
-[ext_resource type="Script" uid="uid://bgxeok7o21s3k" path="res://src/settings/enemy_definition.gd" id="2_p4ort"]
+[ext_resource type="Script" path="res://src/settings/enemy_definition.gd" id="1_gb0p6"]
 
 [resource]
-script = ExtResource("2_p4ort")
-max_hp = 2
+script = ExtResource("1_gb0p6")
 id = &"enemy_basic"
 display_name = "Basic enemy"
 color = Color(0.85, 0.3, 0.35, 1)

@@ -1,15 +1,13 @@
 @tool
 class_name PlayerDefinition
 extends Resource
-## Valori di partenza del giocatore all'inizio di una nuova partita.
+## Valori del giocatore all'inizio di ogni livello (si riparte sempre senza arma).
 
 @export var display_name: String = "Player"
 
-@export_group("Statistiche iniziali")
-@export_range(1, 999) var max_hp: int = 10
-@export_range(0, 99) var coin_count: int = 3
-@export var starting_weapon: EquipmentDefinition
-@export var starting_armor: EquipmentDefinition
+@export_group("Statistiche")
+## Valore di attacco base, senza arma.
+@export_range(0, 999) var attack: int = 1
 
 @export_group("Visual")
 @export var color: Color = Color(0.4, 0.6, 1.0)

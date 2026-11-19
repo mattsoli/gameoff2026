@@ -8,16 +8,16 @@ script = ExtResource("2_aib7a")
 display_name = "Second test"
 legend = ExtResource("1_tpd5n")
 tiles_layout = ". . . . # .
-. O . . . .
+. # . . . .
 . . # . . G
-. . . . O .
+. . . . # .
 # . . . . .
 . . . # . ."
 entities_layout = "P . . . . .
-. . . A . .
+. . . S . .
 . W . . . .
 . . . . . .
-. . D . K .
+. . E . K .
 . . . . . ."
 arrows_layout = ". . . . . .
 . . . < . .

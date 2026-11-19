@@ -4,7 +4,8 @@ extends RefCounted
 
 var cell: Vector2i
 var picked_key: bool = false
-var opened_chest: ChestEntity
+## Arma raccolta in questa casella (null se nessuna).
+var picked_weapon: WeaponDefinition
 var reached_goal: bool = false
 ## Valorizzato se nella casella c'era una freccia (lo shift è già applicato al modello).
 var shift: ShiftResult

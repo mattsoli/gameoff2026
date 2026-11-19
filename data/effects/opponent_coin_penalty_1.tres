@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="OpponentCoinPenaltyEffect" format=3 uid="uid://jhgafjehtkig"]
-
-[ext_resource type="Script" uid="uid://bx63pnr7d3ahe" path="res://src/combat/effects/opponent_coin_penalty_effect.gd" id="1_rvrus"]
-
-[resource]
-script = ExtResource("1_rvrus")
-description = "-1 coin to the opponent"

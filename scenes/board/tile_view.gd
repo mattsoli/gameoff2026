@@ -74,24 +74,21 @@ func _draw_lock(center: Vector2, half_size: float, color: Color) -> void:
 func _draw_entity(rect: Rect2) -> void:
 	var entity: BoardEntity = cell_data.entity
 	var definition: EntityDefinition = entity.definition
-	var alpha: float = 1.0
-	if entity is ChestEntity and (entity as ChestEntity).is_opened:
-		alpha = (entity as ChestEntity).get_chest_definition().opened_alpha
-
 	var icon_rect: Rect2 = rect.grow(-rect.size.x * 0.2)
 	if definition.texture != null:
-		draw_texture_rect(definition.texture, icon_rect, false, Color(1.0, 1.0, 1.0, alpha))
+		draw_texture_rect(definition.texture, icon_rect, false)
 	else:
-		var color: Color = definition.color
-		color.a = alpha
-		draw_circle(Vector2.ZERO, icon_rect.size.x * 0.5, color, true, -1.0, true)
+		draw_circle(Vector2.ZERO, icon_rect.size.x * 0.5, definition.color, true, -1.0, true)
 		DrawUtils.draw_centered_text(self, definition.label, Vector2.ZERO, _tile_size, _settings.label_font_size, _settings.label_color)
 
+	# Valore di attacco visibile sulla griglia: dei nemici e, con il "+", delle armi.
+	var badge_position: Vector2 = Vector2(0.0, rect.end.y - _settings.label_font_size * 0.7)
 	if entity is EnemyEntity:
-		var enemy: EnemyEntity = entity as EnemyEntity
-		var stats: String = "%d/%d" % [enemy.hp, enemy.get_enemy_definition().max_hp]
-		var stats_position: Vector2 = Vector2(0.0, rect.end.y - _settings.label_font_size * 0.6)
-		DrawUtils.draw_centered_text(self, stats, stats_position, _tile_size, int(_settings.label_font_size * 0.8), Color.WHITE)
+		var enemy_attack: int = (entity as EnemyEntity).get_enemy_definition().attack
+		DrawUtils.draw_attack_badge(self, badge_position, enemy_attack, _settings.label_font_size)
+	elif entity is WeaponEntity:
+		var bonus: int = (entity as WeaponEntity).get_weapon_definition().attack_bonus
+		DrawUtils.draw_attack_badge(self, badge_position, bonus, _settings.label_font_size, "+")
 
 
 ## Freccia grande al centro se la casella è vuota, piccola nell'angolo se c'è un elemento.

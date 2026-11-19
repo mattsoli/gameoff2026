@@ -6,11 +6,20 @@ const RADIUS_RATIO: float = 0.3
 
 var _definition: PlayerDefinition
 var _tile_size: float = 0.0
+var _font_size: int = 22
+var _attack: int = 0
 
 
-func setup(definition: PlayerDefinition, tile_size: float) -> void:
+func setup(definition: PlayerDefinition, tile_size: float, font_size: int) -> void:
 	_definition = definition
 	_tile_size = tile_size
+	_font_size = font_size
+	queue_redraw()
+
+
+## Valore di attacco disegnato sulla pedina.
+func set_attack(value: int) -> void:
+	_attack = value
 	queue_redraw()
 
 
@@ -31,7 +40,7 @@ func _draw() -> void:
 	if _definition.board_texture != null:
 		var rect: Rect2 = Rect2(-Vector2.ONE * radius, Vector2.ONE * radius * 2.0)
 		draw_texture_rect(_definition.board_texture, rect, false)
-		return
-	draw_circle(Vector2(0.0, radius * 0.15), radius, _definition.color.darkened(0.45), true, -1.0, true)
-	draw_circle(Vector2.ZERO, radius, _definition.color, true, -1.0, true)
-	draw_circle(Vector2(-radius * 0.3, -radius * 0.3), radius * 0.3, _definition.color.lightened(0.35), true, -1.0, true)
+	else:
+		draw_circle(Vector2(0.0, radius * 0.15), radius, _definition.color.darkened(0.45), true, -1.0, true)
+		draw_circle(Vector2.ZERO, radius, _definition.color, true, -1.0, true)
+	DrawUtils.draw_attack_badge(self, Vector2(0.0, _tile_size * 0.36), _attack, _font_size)

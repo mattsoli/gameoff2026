@@ -9,14 +9,14 @@ display_name = "First test"
 legend = ExtResource("1_r1f35")
 tiles_layout = ". . . # .
 . # . . .
-. . . O .
+. . . # .
 G . # . .
 . . . . ."
 entities_layout = "P . . . .
 . . K . .
 . . . . E
 . . . . .
-. C . . ."
+. W . . ."
 arrows_layout = ". . . . .
 . . . . .
 . . . . v

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://du0xkblt2mn3n" path="res://scenes/combat/combat_screen.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://c8mvkj0gt8kg3" path="res://scenes/combat/combatant_panel.tscn" id="2_panel"]
-[ext_resource type="Script" uid="uid://cvhu645i5ne6a" path="res://scenes/combat/coin_column.gd" id="3_column"]
 
 [node name="CombatScreen" type="CanvasLayer" unique_id=1287108037]
 layer = 10
@@ -45,39 +44,24 @@ horizontal_alignment = 1
 
 [node name="Arena" type="HBoxContainer" parent="Root/Layout" unique_id=625084309]
 layout_mode = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 160
 alignment = 1
 
 [node name="PlayerPanel" parent="Root/Layout/Arena" unique_id=267651943 instance=ExtResource("2_panel")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PlayerCoins" type="Control" parent="Root/Layout/Arena" unique_id=1375942916]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(72, 72)
-layout_mode = 2
-size_flags_vertical = 4
-mouse_filter = 2
-script = ExtResource("3_column")
-
 [node name="VsLabel" type="Label" parent="Root/Layout/Arena" unique_id=1895288375]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "VS"
+vertical_alignment = 1
 horizontal_alignment = 1
-
-[node name="EnemyCoins" type="Control" parent="Root/Layout/Arena" unique_id=906382935]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(72, 72)
-layout_mode = 2
-size_flags_vertical = 4
-mouse_filter = 2
-script = ExtResource("3_column")
 
 [node name="EnemyPanel" parent="Root/Layout/Arena" unique_id=126691458 instance=ExtResource("2_panel")]
 unique_name_in_owner = true
 layout_mode = 2
-show_equipment = false
+show_weapon = false
 
 [node name="ResultLabel" type="Label" parent="Root/Layout" unique_id=1588026427]
 unique_name_in_owner = true
@@ -85,11 +69,3 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 horizontal_alignment = 1
-
-[node name="ActionButton" type="Button" parent="Root/Layout" unique_id=1662563906]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-focus_mode = 0
-text = "Toss coins"

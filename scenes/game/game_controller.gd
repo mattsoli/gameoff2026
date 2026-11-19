@@ -9,9 +9,6 @@ extends Control
 @export var next_level_text: String = "Next level"
 @export var victory_title: String = "Victory!"
 @export var victory_message: String = "You completed all the levels."
-@export var defeat_title: String = "Defeat"
-@export var defeat_message: String = "You ran out of HP."
-@export var retry_text: String = "Retry"
 @export var menu_text: String = "Main menu"
 @export var level_error_title: String = "Level error"
 
@@ -28,8 +25,6 @@ var _is_busy: bool = false
 
 func _ready() -> void:
 	_settings = RunManager.settings
-	RunManager.ensure_run_started()
-	RunManager.begin_level()
 	_background.color = _settings.board.background_color
 	_hud.restart_requested.connect(RunManager.restart_level)
 	_hud.menu_requested.connect(RunManager.go_to_main_menu)
@@ -39,8 +34,10 @@ func _ready() -> void:
 		_show_level_errors(parsed.errors)
 		return
 
-	_session = LevelSession.new(parsed, RunManager.player_state)
+	# Il giocatore riparte da zero a ogni livello (senza arma).
+	_session = LevelSession.new(parsed, PlayerState.create(_settings.player))
 	_board_view.setup(_session.board, _settings.board, _settings.player, _session.player_cell)
+	_board_view.set_player_attack(_session.player.get_attack())
 	_board_view.cell_clicked.connect(_on_cell_clicked)
 	_refresh()
 
@@ -101,24 +98,20 @@ func _request_move(direction: Direction.Type, show_blocked_feedback: bool) -> vo
 func _handle_combat(move: MoveResult) -> void:
 	var player: Combatant = Combatant.from_player(_session.player)
 	var enemy: Combatant = Combatant.from_enemy(move.enemy)
-	var result: CombatResult = await _combat_screen.run_combat(player, enemy, _settings.combat, RunManager.rng)
+	var result: CombatResult = await _combat_screen.run_combat(player, enemy, _settings.combat)
 	var arrival: ArrivalResult = _session.resolve_combat(result)
-	_board_view.refresh_cells()
-	_refresh()
-
-	if not result.is_player_alive():
-		await _show_defeat()
-	elif result.is_enemy_alive():
-		# La battaglia finisce comunque: la pedina torna nella casella precedente.
-		await _board_view.play_pawn_move(move.from)
-	else:
-		await _handle_arrival(arrival)
+	if not result.is_player_winner:
+		# Game over: il livello ricomincia subito da capo.
+		RunManager.restart_level()
+		return
+	await _handle_arrival(arrival)
 
 
 func _handle_arrival(arrival: ArrivalResult) -> void:
 	_board_view.refresh_cells()
 	if arrival.picked_key:
 		_board_view.set_goals_unlocked(true)
+	_board_view.set_player_attack(_session.player.get_attack())
 	_refresh()
 
 	if arrival.reached_goal:
@@ -135,13 +128,6 @@ func _show_level_completed() -> void:
 			RunManager.go_to_main_menu()
 	else:
 		await _result_overlay.ask(victory_title, victory_message, menu_text)
-		RunManager.go_to_main_menu()
-
-
-func _show_defeat() -> void:
-	if await _result_overlay.ask(defeat_title, defeat_message, retry_text, menu_text):
-		RunManager.restart_level()
-	else:
 		RunManager.go_to_main_menu()
 
 
