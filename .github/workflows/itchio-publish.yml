@@ -25,4 +25,4 @@ jobs:
           itch_user: ildede
           itch_game: shift-happens
           version: ${{ github.ref_name }}
-          files: "${{ steps.export.outputs.archive_directory }}/shift-happens-web.zip"
+          files: "${{ steps.export.outputs.archive_directory }}/Web.zip"
