@@ -1,6 +1,11 @@
-[gd_resource type="Resource" script_class="CombatSettings" format=3]
+[gd_resource type="Resource" script_class="CombatSettings" format=3 uid="uid://qn7pin2fa036"]
 
-[ext_resource type="Script" path="res://src/settings/combat_settings.gd" id="1_iunuj"]
+[ext_resource type="Script" uid="uid://b871361qy52sh" path="res://src/settings/combat_settings.gd" id="1_iunuj"]
 
 [resource]
 script = ExtResource("1_iunuj")
+intro_duration = 0.1
+pause_before_resolution = 0.5
+attack_duration = 0.25
+defeat_duration = 0.3
+result_pause = 0.6

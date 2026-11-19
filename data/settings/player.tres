@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="PlayerDefinition" format=3]
+[gd_resource type="Resource" script_class="PlayerDefinition" format=3 uid="uid://bkwdw0mjinc5p"]
 
-[ext_resource type="Script" path="res://src/settings/player_definition.gd" id="1_jach6"]
+[ext_resource type="Script" uid="uid://wh2s4o0hc0u0" path="res://src/settings/player_definition.gd" id="1_jach6"]
 
 [resource]
 script = ExtResource("1_jach6")
-attack = 2

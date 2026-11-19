@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3 uid="uid://dlpisrovqt5jy"]
+
+[ext_resource type="Script" uid="uid://ba05kt1gsss6u" path="res://src/settings/weapon_definition.gd" id="1_2lxha"]
+
+[resource]
+script = ExtResource("1_2lxha")
+attack_bonus = 4
+id = &"strong_weapon"
+display_name = "Strong weapon"
+color = Color(0.96931845, 0.3511932, 0.3771734, 1)
+label = "R"

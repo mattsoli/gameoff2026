@@ -1,15 +1,16 @@
-[gd_resource type="Resource" script_class="LevelLegend" format=3]
+[gd_resource type="Resource" script_class="LevelLegend" format=3 uid="uid://byd1fi3gfodd0"]
 
-[ext_resource type="Script" path="res://src/settings/entity_definition.gd" id="1_sytgo"]
-[ext_resource type="Resource" path="res://data/entities/key.tres" id="2_t1al5"]
-[ext_resource type="Resource" path="res://data/entities/enemy_basic.tres" id="3_lk5g8"]
-[ext_resource type="Resource" path="res://data/entities/enemy_strong.tres" id="4_emfka"]
-[ext_resource type="Resource" path="res://data/entities/basic_weapon.tres" id="5_b16yo"]
-[ext_resource type="Script" path="res://src/settings/level_legend.gd" id="6_jc335"]
-[ext_resource type="Script" path="res://src/settings/tile_definition.gd" id="7_dbm7q"]
-[ext_resource type="Resource" path="res://data/tiles/floor.tres" id="8_df18x"]
-[ext_resource type="Resource" path="res://data/tiles/wall.tres" id="9_i1py4"]
-[ext_resource type="Resource" path="res://data/tiles/goal.tres" id="10_av567"]
+[ext_resource type="Script" uid="uid://baql7puxghbkh" path="res://src/settings/entity_definition.gd" id="1_sytgo"]
+[ext_resource type="Resource" uid="uid://bu7vlhgl1ttld" path="res://data/entities/key.tres" id="2_t1al5"]
+[ext_resource type="Resource" uid="uid://7pvxgqfrhk5t" path="res://data/entities/enemy_basic.tres" id="3_lk5g8"]
+[ext_resource type="Resource" uid="uid://coxdtc1lalpoc" path="res://data/entities/enemy_strong.tres" id="4_emfka"]
+[ext_resource type="Resource" uid="uid://h0mjp3aqu158" path="res://data/entities/weapon_basic.tres" id="5_t1al5"]
+[ext_resource type="Script" uid="uid://vlkf1ndjaoxp" path="res://src/settings/level_legend.gd" id="6_jc335"]
+[ext_resource type="Resource" uid="uid://dlpisrovqt5jy" path="res://data/entities/weapon_strong.tres" id="6_lk5g8"]
+[ext_resource type="Script" uid="uid://cw13whhvesxmr" path="res://src/settings/tile_definition.gd" id="7_dbm7q"]
+[ext_resource type="Resource" uid="uid://b1m567jort8ih" path="res://data/tiles/floor.tres" id="8_df18x"]
+[ext_resource type="Resource" uid="uid://ceeqlavbqqe5p" path="res://data/tiles/wall.tres" id="9_i1py4"]
+[ext_resource type="Resource" uid="uid://d002sx1i2c56q" path="res://data/tiles/goal.tres" id="10_av567"]
 
 [resource]
 script = ExtResource("6_jc335")
@@ -21,6 +22,7 @@ tiles = Dictionary[String, ExtResource("7_dbm7q")]({
 entities = Dictionary[String, ExtResource("1_sytgo")]({
 "E": ExtResource("3_lk5g8"),
 "K": ExtResource("2_t1al5"),
+"R": ExtResource("6_lk5g8"),
 "S": ExtResource("4_emfka"),
-"W": ExtResource("5_b16yo")
+"W": ExtResource("5_t1al5")
 })
