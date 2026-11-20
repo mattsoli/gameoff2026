@@ -1,12 +1,12 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cyot0inn2678q"]
 
-[ext_resource type="Script" path="res://scenes/game/game_controller.gd" id="1_script"]
-[ext_resource type="Script" path="res://scenes/board/board_view.gd" id="2_board"]
+[ext_resource type="Script" uid="uid://bdpxqqkk4udas" path="res://scenes/game/game_controller.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bfnqds1othyr" path="res://scenes/board/board_view.gd" id="2_board"]
 [ext_resource type="PackedScene" path="res://scenes/ui/game_hud.tscn" id="3_hud"]
-[ext_resource type="PackedScene" path="res://scenes/combat/combat_screen.tscn" id="4_combat"]
+[ext_resource type="PackedScene" uid="uid://m7w6dv5wyqnr" path="res://scenes/combat/combat_screen.tscn" id="4_combat"]
 [ext_resource type="PackedScene" path="res://scenes/ui/result_overlay.tscn" id="5_overlay"]
 
-[node name="Game" type="Control"]
+[node name="Game" type="Control" unique_id=405379659]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=162332610]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -26,7 +26,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.06, 0.07, 0.09, 1)
 
-[node name="BoardArea" type="CenterContainer" parent="."]
+[node name="BoardArea" type="CenterContainer" parent="." unique_id=1036819840]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,17 +37,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BoardView" type="Control" parent="BoardArea"]
+[node name="BoardView" type="Control" parent="BoardArea" unique_id=1546322167]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("2_board")
 
-[node name="Hud" parent="." instance=ExtResource("3_hud")]
+[node name="Hud" parent="." unique_id=1558239713 instance=ExtResource("3_hud")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="CombatScreen" parent="." instance=ExtResource("4_combat")]
+[node name="CombatScreen" parent="." unique_id=730897768 instance=ExtResource("4_combat")]
 unique_name_in_owner = true
 
-[node name="ResultOverlay" parent="." instance=ExtResource("5_overlay")]
+[node name="ResultOverlay" parent="." unique_id=307151134 instance=ExtResource("5_overlay")]
 unique_name_in_owner = true
