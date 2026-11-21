@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3g4y2yq137um"
-path="res://.godot/imported/Icona_pecora.png-db1e8fe6cc775eefb3423baf0525208a.ctex"
+path="res://.godot/imported/Pecora_unlocked.png-1e6fb6d91574c7700de8fa569322bc0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Icona_pecora.png"
-dest_files=["res://.godot/imported/Icona_pecora.png-db1e8fe6cc775eefb3423baf0525208a.ctex"]
+source_file="res://assets/Pecora_unlocked.png"
+dest_files=["res://.godot/imported/Pecora_unlocked.png-1e6fb6d91574c7700de8fa569322bc0b.ctex"]
 
 [params]
 

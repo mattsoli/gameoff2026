@@ -58,12 +58,21 @@ func _draw_tile(rect: Rect2) -> void:
 
 
 func _draw_goal(rect: Rect2) -> void:
-	var color: Color = cell_data.tile.accent_color
-	var radius: float = rect.size.x * 0.3
-	DrawUtils.draw_goal_rings(self, Vector2.ZERO, radius, color, 5.0)
+	#var color: Color = cell_data.tile.accent_color
+	#var radius: float = rect.size.x * 0.3
+	#DrawUtils.draw_goal_rings(self, Vector2.ZERO, radius, color, 5.0)
+	var tile: TileDefinition = cell_data.tile
 	if not _goal_unlocked:
-		_draw_lock(rect.end - Vector2.ONE * rect.size.x * 0.2, rect.size.x * 0.1, color)
-
+		if tile.texture_locked != null:
+			var icon_rect: Rect2 = rect.grow(-rect.size.x * 0.2)
+			draw_texture_rect(tile.texture_locked, icon_rect, false)
+		else:
+			var color: Color = cell_data.tile.accent_color
+			_draw_lock(rect.end - Vector2.ONE * rect.size.x * 0.2, rect.size.x * 0.1, color)
+	else:
+		if tile.texture_unlocked != null:
+			var icon_rect: Rect2 = rect.grow(-rect.size.x * 0.2)
+			draw_texture_rect(tile.texture_unlocked, icon_rect, false)
 
 func _draw_lock(center: Vector2, half_size: float, color: Color) -> void:
 	var body: Rect2 = Rect2(center - Vector2(half_size, 0.0), Vector2(half_size * 2.0, half_size * 1.4))

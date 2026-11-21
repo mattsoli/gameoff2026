@@ -6,3 +6,4 @@
 [resource]
 script = ExtResource("1_58a1q")
 background_texture = ExtResource("1_bwgv3")
+board_color = Color(0.101960786, 0.10980392, 0.14117648, 0)

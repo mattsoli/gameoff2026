@@ -20,3 +20,5 @@ enum Pattern { FLAT, HATCHED }
 @export var pattern: Pattern = Pattern.FLAT
 ## Se assegnata sostituisce il disegno placeholder.
 @export var texture: Texture2D
+@export var texture_unlocked: Texture2D
+@export var texture_locked: Texture2D
