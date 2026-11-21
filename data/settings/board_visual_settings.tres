@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="BoardVisualSettings" format=3 uid="uid://dqwgmd8xqgss8"]
 
 [ext_resource type="Script" uid="uid://dnjq1chk3kbsy" path="res://src/settings/board_visual_settings.gd" id="1_58a1q"]
+[ext_resource type="Texture2D" uid="uid://3d28fgbeswuu" path="res://assets/Fondo.png" id="1_bwgv3"]
 
 [resource]
 script = ExtResource("1_58a1q")
+background_texture = ExtResource("1_bwgv3")

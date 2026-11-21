@@ -14,6 +14,7 @@ extends Resource
 
 @export_group("Colori")
 @export var background_color: Color = Color(0.06, 0.07, 0.09)
+@export var background_texture: Texture2D
 @export var board_color: Color = Color(0.1, 0.11, 0.14)
 ## Colore delle frecce di shifting (devono essere sempre ben visibili).
 @export var arrow_color: Color = Color(1.0, 0.55, 0.2)

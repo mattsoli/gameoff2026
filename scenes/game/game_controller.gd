@@ -16,7 +16,8 @@ var _settings: GameSettings
 var _session: LevelSession
 var _is_busy: bool = false
 
-@onready var _background: ColorRect = %Background
+@onready var _background_color: ColorRect = %BackgroundColor
+@onready var _background_texture: TextureRect = %BackgroundTexture
 @onready var _board_view: BoardView = %BoardView
 @onready var _hud: GameHud = %Hud
 @onready var _combat_screen: CombatScreen = %CombatScreen
@@ -25,7 +26,9 @@ var _is_busy: bool = false
 
 func _ready() -> void:
 	_settings = RunManager.settings
-	_background.color = _settings.board.background_color
+	_background_color.color = _settings.board.background_color
+	if _settings.board.background_texture != null:
+		_background_texture.texture = _settings.board.background_texture
 	_hud.restart_requested.connect(RunManager.restart_level)
 	_hud.menu_requested.connect(RunManager.go_to_main_menu)
 
