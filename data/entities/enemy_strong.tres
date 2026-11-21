@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://coxdtc1lalpoc"]
 
 [ext_resource type="Script" uid="uid://bgxeok7o21s3k" path="res://src/settings/enemy_definition.gd" id="1_g5tga"]
+[ext_resource type="Texture2D" uid="uid://cnujwrt3dr411" path="res://assets/Icona_mostro.png" id="2_esi6q"]
 
 [resource]
 script = ExtResource("1_g5tga")
@@ -9,3 +10,4 @@ id = &"enemy_strong"
 display_name = "Strong enemy"
 color = Color(0.6, 0.6, 0.7, 1)
 label = "S"
+texture = ExtResource("2_esi6q")

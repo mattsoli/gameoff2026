@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponDefinition" format=3 uid="uid://h0mjp3aqu158"]
 
 [ext_resource type="Script" uid="uid://ba05kt1gsss6u" path="res://src/settings/weapon_definition.gd" id="1_uibrl"]
+[ext_resource type="Texture2D" uid="uid://cxjtorqtiijm" path="res://assets/Attacco.png" id="2_ds3oc"]
 
 [resource]
 script = ExtResource("1_uibrl")
@@ -9,3 +10,4 @@ id = &"basic_weapon"
 display_name = "Basic weapon"
 color = Color(0.75, 0.55, 0.3, 1)
 label = "W"
+texture = ExtResource("2_ds3oc")

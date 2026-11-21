@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="TileDefinition" format=3 uid="uid://d002sx1i2c56q"]
 
 [ext_resource type="Script" uid="uid://cw13whhvesxmr" path="res://src/settings/tile_definition.gd" id="1_h1nk8"]
+[ext_resource type="Texture2D" uid="uid://3g4y2yq137um" path="res://assets/Icona_pecora.png" id="2_asxai"]
 
 [resource]
 script = ExtResource("1_h1nk8")
@@ -8,3 +9,4 @@ id = &"goal"
 display_name = "Goal"
 is_goal = true
 accent_color = Color(0.25, 0.75, 0.55, 1)
+texture = ExtResource("2_asxai")

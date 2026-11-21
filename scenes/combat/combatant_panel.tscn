@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c8mvkj0gt8kg3"]
 
 [ext_resource type="Script" uid="uid://q7y13jeahws" path="res://scenes/combat/combatant_panel.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://pj8v8b46uakn" path="res://assets/Icona_chiave.png" id="2_7bifa"]
 
 [node name="CombatantPanel" type="VBoxContainer" unique_id=2054049520]
 custom_minimum_size = Vector2(380, 0)
@@ -37,6 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("2_7bifa")
 expand_mode = 1
 stretch_mode = 5
 
