@@ -22,7 +22,7 @@ jobs:
         uses: Ayowel/butler-to-itch@v1.3.1
         with:
           butler_key: ${{secrets.ITCHIO_TOKEN}}
-          itch_user: ildede
-          itch_game: shift-happens
+          itch_user: michele-buonocunto
+          itch_game: titolo-provvisorio-per-gioco-provvisorio
           version: ${{ github.ref_name }}
           files: "${{ steps.export.outputs.archive_directory }}/Web.zip"
