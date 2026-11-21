@@ -18,11 +18,20 @@ jobs:
           relative_project_path: ./
           archive_output: true
 
-      - name: Publish to Itch
+      - name: Publish to Itch michele-buonocunto
         uses: Ayowel/butler-to-itch@v1.3.1
         with:
           butler_key: ${{secrets.ITCHIO_TOKEN}}
           itch_user: michele-buonocunto
           itch_game: titolo-provvisorio-per-gioco-provvisorio
+          version: ${{ github.ref_name }}
+          files: "${{ steps.export.outputs.archive_directory }}/Web.zip"
+
+      - name: Publish to Itch ildede
+        uses: Ayowel/butler-to-itch@v1.3.1
+        with:
+          butler_key: ${{secrets.ITCHIO_TOKEN}}
+          itch_user: ildede
+          itch_game: shift-happens
           version: ${{ github.ref_name }}
           files: "${{ steps.export.outputs.archive_directory }}/Web.zip"
