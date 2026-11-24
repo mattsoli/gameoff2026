@@ -15,7 +15,7 @@ const MIN_CELL_SIZE: float = 22.0
 const MAX_CELL_SIZE: float = 64.0
 const GAP: float = 2.0
 const BACKGROUND_COLOR: Color = Color(0.08, 0.09, 0.11)
-const ARROW_COLOR: Color = Color(1.0, 0.55, 0.2)
+const ARROW_SETTINGS: ArrowSettings = preload("res://data/settings/arrow_settings.tres")
 const PLAYER_COLOR: Color = Color(0.4, 0.6, 1.0)
 const UNKNOWN_COLOR: Color = Color(1.0, 0.0, 1.0)
 const HOVER_COLOR: Color = Color(1.0, 1.0, 1.0, 0.9)
@@ -185,9 +185,9 @@ func _draw_arrow_layer(rect: Rect2, symbol: String, has_entity: bool) -> void:
 	if has_entity:
 		var corner: Vector2 = rect.position + Vector2(rect.size.x * 0.78, rect.size.y * 0.22)
 		draw_circle(corner, _cell_size * 0.2, BACKGROUND_COLOR, true, -1.0, true)
-		DrawUtils.draw_arrow(self, corner, direction, _cell_size * 0.45, ARROW_COLOR)
+		DrawUtils.draw_arrow(self, corner, direction, _cell_size * 0.45, ARROW_SETTINGS, rect)
 	else:
-		DrawUtils.draw_arrow(self, rect.get_center(), direction, _cell_size, ARROW_COLOR)
+		DrawUtils.draw_arrow(self, rect.get_center(), direction, _cell_size, ARROW_SETTINGS, rect)
 
 
 ## Simbolo non presente nella legenda: cella evidenziata in magenta.

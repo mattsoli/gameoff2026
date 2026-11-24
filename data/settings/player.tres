@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="PlayerDefinition" format=3 uid="uid://bkwdw0mjinc5p"]
 
+[ext_resource type="Texture2D" uid="uid://d3gpaoahaw285" path="res://assets/Icona_player.png" id="1_1s5d4"]
 [ext_resource type="Script" uid="uid://wh2s4o0hc0u0" path="res://src/settings/player_definition.gd" id="1_jach6"]
 [ext_resource type="Texture2D" uid="uid://b0gxd2jptn68q" path="res://assets/Baddù.png" id="2_1s5d4"]
 
 [resource]
 script = ExtResource("1_jach6")
 color = Color(0.4, 0.6, 1, 0)
-board_texture = ExtResource("2_1s5d4")
+board_texture = ExtResource("1_1s5d4")
 combat_texture = ExtResource("2_1s5d4")

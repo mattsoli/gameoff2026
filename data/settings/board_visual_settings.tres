@@ -1,9 +1,26 @@
 [gd_resource type="Resource" script_class="BoardVisualSettings" format=3 uid="uid://dqwgmd8xqgss8"]
 
+[ext_resource type="Texture2D" uid="uid://c1nnstvv84882" path="res://assets/Freccia_giù.png" id="1_6e8sl"]
 [ext_resource type="Script" uid="uid://dnjq1chk3kbsy" path="res://src/settings/board_visual_settings.gd" id="1_58a1q"]
 [ext_resource type="Texture2D" uid="uid://3d28fgbeswuu" path="res://assets/Fondo.png" id="1_bwgv3"]
+[ext_resource type="Texture2D" uid="uid://dyft7oygl5wtu" path="res://assets/Freccia_sinistra.png" id="2_vb1y3"]
+[ext_resource type="Texture2D" uid="uid://dml76fut4xc46" path="res://assets/Freccia_destra.png" id="3_b347k"]
+[ext_resource type="Texture2D" uid="uid://c7s7vldu1i2ow" path="res://assets/Freccia_su.png" id="4_8a2qo"]
+[ext_resource type="Script" uid="uid://3wh0dmhnw8r1" path="res://src/settings/arrow_settings.gd" id="5_vb1y3"]
+
+[sub_resource type="Resource" id="Resource_lfrn8"]
+script = ExtResource("5_vb1y3")
+color = null
+texture_up = ExtResource("4_8a2qo")
+texture_down = ExtResource("1_6e8sl")
+texture_right = ExtResource("3_b347k")
+texture_left = ExtResource("2_vb1y3")
+metadata/_custom_type_script = "uid://3wh0dmhnw8r1"
 
 [resource]
 script = ExtResource("1_58a1q")
+tile_size = 150.0
+tile_gap = 0.0
 background_texture = ExtResource("1_bwgv3")
 board_color = Color(0.101960786, 0.10980392, 0.14117648, 0)
+arrow = SubResource("Resource_lfrn8")

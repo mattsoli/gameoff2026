@@ -40,10 +40,10 @@ func _draw() -> void:
 	_draw_tile(rect)
 	if cell_data.tile.is_goal:
 		_draw_goal(rect)
+	if cell_data.has_arrow():
+		_draw_arrow(rect)
 	if cell_data.has_entity():
 		_draw_entity(rect)
-	if cell_data.has_arrow():
-		_draw_arrow()
 
 
 func _draw_tile(rect: Rect2) -> void:
@@ -58,9 +58,6 @@ func _draw_tile(rect: Rect2) -> void:
 
 
 func _draw_goal(rect: Rect2) -> void:
-	#var color: Color = cell_data.tile.accent_color
-	#var radius: float = rect.size.x * 0.3
-	#DrawUtils.draw_goal_rings(self, Vector2.ZERO, radius, color, 5.0)
 	var tile: TileDefinition = cell_data.tile
 	if not _goal_unlocked:
 		if tile.texture_locked != null:
@@ -101,10 +98,10 @@ func _draw_entity(rect: Rect2) -> void:
 
 
 ## Freccia grande al centro se la casella è vuota, piccola nell'angolo se c'è un elemento.
-func _draw_arrow() -> void:
+func _draw_arrow(rect: Rect2) -> void:
 	var has_entity: bool = cell_data.has_entity()
 	var scale_factor: float = _tile_size * (0.45 if has_entity else 1.0)
 	var center: Vector2 = Vector2(_tile_size * 0.28, -_tile_size * 0.28) if has_entity else Vector2.ZERO
 	if has_entity:
 		draw_circle(center, scale_factor * 0.42, _settings.board_color, true, -1.0, true)
-	DrawUtils.draw_arrow(self, center, cell_data.arrow, scale_factor, _settings.arrow_color)
+	DrawUtils.draw_arrow(self, center, cell_data.arrow, scale_factor, _settings.arrow, rect)

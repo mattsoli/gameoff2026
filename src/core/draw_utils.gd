@@ -15,10 +15,24 @@ const ARROW_SHAPE: PackedVector2Array = [
 
 
 ## Freccia ruotata nella direzione indicata. `length` è il lato del quadrato che la contiene.
-static func draw_arrow(canvas: CanvasItem, center: Vector2, direction: Direction.Type, length: float, color: Color) -> void:
-	canvas.draw_set_transform(center, Direction.to_angle(direction), Vector2.ONE * length)
-	canvas.draw_colored_polygon(ARROW_SHAPE, color)
-	canvas.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+static func draw_arrow(canvas: CanvasItem, center: Vector2, direction: Direction.Type, length: float, arrow_settings: ArrowSettings, rect: Rect2) -> void:
+	var texture: Texture2D
+	match direction:
+		Direction.Type.UP:
+			texture = arrow_settings.texture_up
+		Direction.Type.DOWN:
+			texture = arrow_settings.texture_down
+		Direction.Type.LEFT:
+			texture = arrow_settings.texture_left
+		Direction.Type.RIGHT:
+			texture = arrow_settings.texture_right
+	if texture:
+		var icon_rect: Rect2 = rect.grow(-rect.size.x * 0.2)
+		canvas.draw_texture_rect(texture, icon_rect, false)
+	else:
+		canvas.draw_set_transform(center, Direction.to_angle(direction), Vector2.ONE * length)
+		canvas.draw_colored_polygon(ARROW_SHAPE, arrow_settings.color)
+		canvas.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
 ## Righe diagonali ritagliate dentro il rettangolo.
