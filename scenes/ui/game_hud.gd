@@ -25,6 +25,12 @@ func _ready() -> void:
 	_menu_button.pressed.connect(menu_requested.emit)
 
 
+## Feedback animato dei pulsanti configurato in UiSettings.
+func apply_ui(ui: UiSettings) -> void:
+	UiAnimator.attach_button_feedback(_restart_button, ui)
+	UiAnimator.attach_button_feedback(_menu_button, ui)
+
+
 func refresh(level_number: int, level_name: String, player: PlayerState, has_key: bool) -> void:
 	_level_label.text = level_format % [level_number, level_name]
 	_attack_label.text = attack_format % player.get_attack()

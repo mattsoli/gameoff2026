@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="GameSettings" format=3 uid="uid://ccc432p70k0dc"]
+[gd_resource type="Resource" script_class="GameSettings" format=3]
 
-[ext_resource type="Resource" uid="uid://dqwgmd8xqgss8" path="res://data/settings/board_visual_settings.tres" id="1_pj6oq"]
-[ext_resource type="Resource" uid="uid://qn7pin2fa036" path="res://data/settings/combat_settings.tres" id="2_jaxr3"]
-[ext_resource type="Script" uid="uid://cv6c2l4dtfiiv" path="res://src/settings/level_definition.gd" id="3_j336a"]
-[ext_resource type="Resource" uid="uid://ciunaqlopocts" path="res://data/levels/level_01.tres" id="6_jaxr3"]
-[ext_resource type="Resource" uid="uid://bkwdw0mjinc5p" path="res://data/settings/player.tres" id="6_qcty3"]
-[ext_resource type="Script" uid="uid://bo7k3pqqgei4i" path="res://src/settings/game_settings.gd" id="7_a2h68"]
-[ext_resource type="Resource" uid="uid://n1w6cbpllxbc" path="res://data/levels/level_02.tres" id="7_j336a"]
-[ext_resource type="Resource" uid="uid://de8hqvga2k043" path="res://data/levels/level_03.tres" id="8_jwwgd"]
+[ext_resource type="Resource" path="res://data/settings/board_visual_settings.tres" id="1_pj6oq"]
+[ext_resource type="Resource" path="res://data/settings/combat_settings.tres" id="2_jaxr3"]
+[ext_resource type="Script" path="res://src/settings/level_definition.gd" id="3_j336a"]
+[ext_resource type="Resource" path="res://data/levels/level_01.tres" id="6_jaxr3"]
+[ext_resource type="Resource" path="res://data/settings/player.tres" id="6_qcty3"]
+[ext_resource type="Script" path="res://src/settings/game_settings.gd" id="7_a2h68"]
+[ext_resource type="Resource" path="res://data/levels/level_02.tres" id="7_j336a"]
+[ext_resource type="Resource" path="res://data/levels/level_03.tres" id="8_jwwgd"]
+[ext_resource type="Resource" path="res://data/settings/ui_settings.tres" id="9_j336a"]
 
 [resource]
 script = ExtResource("7_a2h68")
@@ -15,3 +16,4 @@ player = ExtResource("6_qcty3")
 levels = Array[ExtResource("3_j336a")]([ExtResource("6_jaxr3"), ExtResource("7_j336a"), ExtResource("8_jwwgd")])
 board = ExtResource("1_pj6oq")
 combat = ExtResource("2_jaxr3")
+ui = ExtResource("9_j336a")

@@ -10,6 +10,7 @@ var weapon_name: String = ""
 # Dati per la presentazione.
 var color: Color = Color.WHITE
 var texture: Texture2D
+var scene: PackedScene
 
 
 static func from_player(state: PlayerState) -> Combatant:
@@ -18,6 +19,7 @@ static func from_player(state: PlayerState) -> Combatant:
 	combatant.attack = state.get_attack()
 	combatant.color = state.definition.color
 	combatant.texture = state.definition.combat_texture
+	combatant.scene = state.definition.combat_scene
 	if state.weapon != null:
 		combatant.weapon_name = state.weapon.display_name
 	return combatant
@@ -30,4 +32,5 @@ static func from_enemy(enemy: EnemyEntity) -> Combatant:
 	combatant.attack = definition.attack
 	combatant.color = definition.color
 	combatant.texture = definition.combat_texture
+	combatant.scene = definition.combat_scene
 	return combatant

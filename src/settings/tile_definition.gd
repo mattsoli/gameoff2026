@@ -22,3 +22,7 @@ enum Pattern { FLAT, HATCHED }
 @export var texture: Texture2D
 @export var texture_unlocked: Texture2D
 @export var texture_locked: Texture2D
+## Scena animata a mano (sprite + AnimationPlayer). Se assegnata sostituisce texture e disegno di prova.
+## Va disegnata centrata in (0, 0) per una casella grande quanto BoardVisualSettings.scene_reference_size.
+## Animazioni usate: "idle"; per gli obiettivi anche "unlock" (alla raccolta della chiave) e "unlocked".
+@export var board_scene: PackedScene

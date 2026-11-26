@@ -1,4 +1,59 @@
-[gd_resource type="Theme" format=3]
+[gd_resource type="Theme" format=3 uid="uid://ccuhfibspu2e5"]
+
+[ext_resource type="Texture2D" uid="uid://b431f0uupuj5l" path="res://assets/tessera.png" id="1_oqe2t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jewmd"]
+bg_color = Color(0.13, 0.14, 0.18, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.32, 0.4, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbu1s"]
+texture = ExtResource("1_oqe2t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eub1u"]
+texture = ExtResource("1_oqe2t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqe2t"]
+texture = ExtResource("1_oqe2t")
 
 [resource]
 default_font_size = 28
+AttackValueLabel/base_type = &"Label"
+AttackValueLabel/colors/font_color = Color(1, 0.8, 0.35, 1)
+AttackValueLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+AttackValueLabel/constants/outline_size = 8
+AttackValueLabel/font_sizes/font_size = 72
+CombatantNameLabel/base_type = &"Label"
+CombatantNameLabel/font_sizes/font_size = 40
+HudButton/base_type = &"Button"
+HudButton/font_sizes/font_size = 28
+HudLabel/base_type = &"Label"
+HudLabel/font_sizes/font_size = 28
+OverlayPanel/base_type = &"PanelContainer"
+OverlayPanel/styles/panel = SubResource("StyleBoxFlat_jewmd")
+OverlayTitleLabel/base_type = &"Label"
+OverlayTitleLabel/font_sizes/font_size = 52
+PrimaryButton/base_type = &"Button"
+PrimaryButton/font_sizes/font_size = 36
+PrimaryButton/styles/hover = SubResource("StyleBoxTexture_dbu1s")
+PrimaryButton/styles/normal = SubResource("StyleBoxTexture_eub1u")
+PrimaryButton/styles/pressed = SubResource("StyleBoxTexture_oqe2t")
+ResultLabel/base_type = &"Label"
+ResultLabel/font_sizes/font_size = 36
+ScreenTitleLabel/base_type = &"Label"
+ScreenTitleLabel/font_sizes/font_size = 56
+SecondaryButton/base_type = &"Button"
+SecondaryButton/font_sizes/font_size = 32
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 96
+VsLabel/base_type = &"Label"
+VsLabel/font_sizes/font_size = 48
+WeaponLabel/base_type = &"Label"
+WeaponLabel/font_sizes/font_size = 28

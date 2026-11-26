@@ -26,9 +26,12 @@ var _is_busy: bool = false
 
 func _ready() -> void:
 	_settings = RunManager.settings
-	_background_color.color = _settings.board.background_color
-	if _settings.board.background_texture != null:
-		_background_texture.texture = _settings.board.background_texture
+	var ui: UiSettings = _settings.get_ui()
+	if ui.game_background != null:
+		ui.game_background.apply(_background_color, _background_texture)
+	_hud.apply_ui(ui)
+	_combat_screen.apply_ui(ui)
+	_result_overlay.apply_ui(ui)
 	_hud.restart_requested.connect(RunManager.restart_level)
 	_hud.menu_requested.connect(RunManager.go_to_main_menu)
 
@@ -43,6 +46,7 @@ func _ready() -> void:
 	_board_view.set_player_attack(_session.player.get_attack())
 	_board_view.cell_clicked.connect(_on_cell_clicked)
 	_refresh()
+	_play_level_intro(ui)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -64,6 +68,19 @@ func _process(_delta: float) -> void:
 	var direction: Direction.Type = _get_held_direction()
 	if direction != Direction.Type.NONE:
 		_request_move(direction, false)
+
+
+## Comparsa di HUD e board a inizio livello; l'input resta bloccato finché la board non è pronta.
+func _play_level_intro(ui: UiSettings) -> void:
+	_is_busy = true
+	UiAnimator.prepare_in(_hud, ui.hud_appear)
+	UiAnimator.prepare_in(_board_view, ui.board_appear)
+	# La board sta in un CenterContainer: si anima dopo che è stata posizionata.
+	await get_tree().process_frame
+	UiAnimator.play_in(_hud, ui.hud_appear)
+	await UiAnimator.play_in(_board_view, ui.board_appear)
+	_is_busy = false
+	_refresh()
 
 
 func _can_act() -> bool:

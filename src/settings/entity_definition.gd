@@ -13,6 +13,10 @@ extends Resource
 @export var label: String = ""
 ## Se assegnata sostituisce l'icona placeholder sulla board.
 @export var texture: Texture2D
+## Scena animata a mano (sprite + AnimationPlayer). Se assegnata sostituisce texture e disegno di prova.
+## Va disegnata centrata in (0, 0) per una casella grande quanto BoardVisualSettings.scene_reference_size.
+## Animazioni usate: "idle"; "defeat" (nemico sconfitto) o "pickup" (chiave/arma raccolta).
+@export var board_scene: PackedScene
 
 
 ## Crea lo stato runtime di questo elemento. Va sovrascritto dalle sottoclassi.

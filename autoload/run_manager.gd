@@ -19,6 +19,17 @@ func _ready() -> void:
 	assert(not settings.levels.is_empty(), "GameSettings non contiene livelli")
 	# Se il gioco è stato avviato dal pulsante "Test level" la richiesta è già pronta.
 	_test_level = EditorTestLevel.consume()
+	_apply_theme(settings.get_ui())
+
+
+## Il Theme di UiSettings vale per tutte le scene: lo si applica alla finestra principale.
+## Il suo font predefinito viene usato anche per le scritte disegnate sulla board.
+func _apply_theme(ui: UiSettings) -> void:
+	if ui.theme == null:
+		return
+	get_tree().root.theme = ui.theme
+	if ui.theme.has_default_font():
+		DrawUtils.board_font = ui.theme.default_font
 
 
 func start_new_run() -> void:

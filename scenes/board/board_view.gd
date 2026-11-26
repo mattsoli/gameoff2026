@@ -98,13 +98,14 @@ func refresh_cells() -> void:
 
 
 func play_pawn_move(cell: Vector2i) -> void:
-	var tween: Tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.tween_property(_pawn_view, "position", cell_to_center(cell), _settings.move_duration)
+	_pawn_view.play_move_animation()
+	var tween: Tween = create_tween()
+	UiAnimation.tween_property(tween, _pawn_view, "position", cell_to_center(cell), _settings.move_animation)
 	await tween.finished
 
 
 func play_pawn_bump(direction: Direction.Type) -> void:
-	await _pawn_view.play_bump(direction, _settings.bump_distance, _settings.bump_duration)
+	await _pawn_view.play_bump(direction, _settings.bump_distance, _settings.bump_animation)
 
 
 ## Anima uno shift già applicato al modello. La casella che esce dal bordo scorre fuori,
@@ -113,27 +114,27 @@ func play_shift(shift: ShiftResult) -> void:
 	var line: Array[Vector2i] = shift.line
 	var step: Vector2i = Direction.to_vector(shift.direction)
 	var last_cell: Vector2i = line[line.size() - 1]
-	var duration: float = _settings.shift_duration
-	var tween: Tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	var animation: UiAnimation = _settings.shift_animation
+	var tween: Tween = create_tween().set_parallel(true)
 
 	for i: int in range(1, line.size()):
-		tween.tween_property(_get_view(line[i]), "position", cell_to_center(line[i]), duration)
+		UiAnimation.tween_property(tween, _get_view(line[i]), "position", cell_to_center(line[i]), animation)
 
 	var wrapped_data: CellData = _board.get_cell(line[0])
 	var wrapped_view: TileView = _tile_views[wrapped_data]
 	var tile_ghost: TileView = _create_tile_view(wrapped_data)
 	tile_ghost.position = cell_to_center(line[0] - step)
-	tween.tween_property(wrapped_view, "position", cell_to_center(last_cell + step), duration)
-	tween.tween_property(tile_ghost, "position", cell_to_center(line[0]), duration)
+	UiAnimation.tween_property(tween, wrapped_view, "position", cell_to_center(last_cell + step), animation)
+	UiAnimation.tween_property(tween, tile_ghost, "position", cell_to_center(line[0]), animation)
 
 	var pawn_ghost: PawnView = null
 	if shift.does_player_wrap():
 		pawn_ghost = _create_pawn_view()
 		pawn_ghost.position = cell_to_center(shift.player_to - step)
-		tween.tween_property(_pawn_view, "position", cell_to_center(shift.player_from + step), duration)
-		tween.tween_property(pawn_ghost, "position", cell_to_center(shift.player_to), duration)
+		UiAnimation.tween_property(tween, _pawn_view, "position", cell_to_center(shift.player_from + step), animation)
+		UiAnimation.tween_property(tween, pawn_ghost, "position", cell_to_center(shift.player_to), animation)
 	elif shift.does_player_move():
-		tween.tween_property(_pawn_view, "position", cell_to_center(shift.player_to), duration)
+		UiAnimation.tween_property(tween, _pawn_view, "position", cell_to_center(shift.player_to), animation)
 
 	await tween.finished
 
@@ -199,18 +200,19 @@ func _get_view(cell: Vector2i) -> TileView:
 
 func _create_tile_view(data: CellData) -> TileView:
 	var view: TileView = TileView.new()
-	view.setup(data, _settings, _tile_size)
-	view.set_goal_unlocked(_goals_unlocked)
+	# Prima nell'albero, poi setup: le scene animate partono subito con "idle".
 	add_child(view)
+	view.setup(data, _settings, _tile_size)
+	view.set_goal_unlocked(_goals_unlocked, false)
 	return view
 
 
 func _create_pawn_view() -> PawnView:
 	var pawn: PawnView = PawnView.new()
 	pawn.z_index = PAWN_Z_INDEX
-	pawn.setup(_player_definition, _tile_size, _settings.label_font_size)
-	pawn.set_attack(_player_attack)
 	add_child(pawn)
+	pawn.setup(_player_definition, _tile_size, _settings.label_font_size, _settings.scene_reference_size)
+	pawn.set_attack(_player_attack)
 	return pawn
 
 

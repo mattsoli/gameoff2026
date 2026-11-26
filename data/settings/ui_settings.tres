@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="UiSettings" format=3 uid="uid://bpy3ki548qwwg"]
+
+[ext_resource type="Script" uid="uid://cxef3gkjrdiuv" path="res://src/settings/ui/ui_transition.gd" id="1_0c2jj"]
+[ext_resource type="Script" uid="uid://wdl32q0sit3m" path="res://src/settings/ui/ui_animation.gd" id="2_dbu1s"]
+[ext_resource type="Script" uid="uid://csriqntp7scqs" path="res://src/settings/ui/button_state_effect.gd" id="2_j2qu1"]
+[ext_resource type="Script" uid="uid://blp5rf3kj6aep" path="res://src/settings/ui/screen_background.gd" id="3_wdt5l"]
+[ext_resource type="Texture2D" uid="uid://3d28fgbeswuu" path="res://assets/Fondo.png" id="4_j2qu1"]
+[ext_resource type="Script" uid="uid://cdm51gpmru5x7" path="res://src/settings/ui/button_feedback.gd" id="4_qpioc"]
+[ext_resource type="Script" uid="uid://sksk5nd5xv6r" path="res://src/settings/ui/ui_settings.gd" id="5_qpioc"]
+[ext_resource type="Theme" uid="uid://ccuhfibspu2e5" path="res://data/settings/ui_theme.tres" id="6_dbu1s"]
+
+[sub_resource type="Resource" id="Resource_pthnc"]
+script = ExtResource("1_0c2jj")
+start_scale = Vector2(0.92, 0.92)
+duration = 0.35
+transition = 7
+
+[sub_resource type="Resource" id="Resource_or6h7"]
+script = ExtResource("2_j2qu1")
+scale = Vector2(1.05, 1.05)
+rotation_degrees = 31.0
+
+[sub_resource type="Resource" id="Resource_ey1ek"]
+script = ExtResource("2_dbu1s")
+
+[sub_resource type="Resource" id="Resource_grpk8"]
+script = ExtResource("2_dbu1s")
+duration = 2.77
+
+[sub_resource type="Resource" id="Resource_dfyvy"]
+script = ExtResource("2_j2qu1")
+scale = Vector2(0.95, 0.95)
+
+[sub_resource type="Resource" id="Resource_7tipk"]
+script = ExtResource("4_qpioc")
+hover = SubResource("Resource_or6h7")
+pressed = SubResource("Resource_dfyvy")
+hover_animation = SubResource("Resource_ey1ek")
+press_animation = SubResource("Resource_grpk8")
+
+[sub_resource type="Resource" id="Resource_fko1v"]
+script = ExtResource("3_wdt5l")
+color = Color(0.05, 0.06, 0.08, 1)
+
+[sub_resource type="Resource" id="Resource_t4kc0"]
+script = ExtResource("3_wdt5l")
+texture = ExtResource("4_j2qu1")
+
+[sub_resource type="Resource" id="Resource_ignwl"]
+script = ExtResource("1_0c2jj")
+slide_offset = Vector2(0, -60)
+duration = 0.35
+transition = 7
+
+[sub_resource type="Resource" id="Resource_c8vmv"]
+script = ExtResource("3_wdt5l")
+texture = ExtResource("4_j2qu1")
+
+[sub_resource type="Resource" id="Resource_dabjp"]
+script = ExtResource("1_0c2jj")
+slide_offset = Vector2(0, 40)
+duration = 0.4
+delay = 0.2
+transition = 7
+
+[sub_resource type="Resource" id="Resource_bya7h"]
+script = ExtResource("1_0c2jj")
+slide_offset = Vector2(0, -40)
+duration = 0.99
+delay = 0.25
+transition = 1
+
+[sub_resource type="Resource" id="Resource_2rcnt"]
+script = ExtResource("1_0c2jj")
+start_scale = Vector2(0.85, 0.85)
+duration = 0.3
+transition = 10
+
+[sub_resource type="Resource" id="Resource_s2xnt"]
+script = ExtResource("1_0c2jj")
+start_scale = Vector2(0.95, 0.95)
+duration = 0.15
+easing = 0
+
+[resource]
+script = ExtResource("5_qpioc")
+theme = ExtResource("6_dbu1s")
+menu_background = SubResource("Resource_c8vmv")
+menu_title_appear = SubResource("Resource_bya7h")
+menu_buttons_appear = SubResource("Resource_dabjp")
+game_background = SubResource("Resource_t4kc0")
+hud_appear = SubResource("Resource_ignwl")
+board_appear = SubResource("Resource_pthnc")
+combat_background = SubResource("Resource_fko1v")
+overlay_appear = SubResource("Resource_2rcnt")
+overlay_disappear = SubResource("Resource_s2xnt")
+button_feedback = SubResource("Resource_7tipk")

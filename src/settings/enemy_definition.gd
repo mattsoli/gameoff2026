@@ -10,6 +10,10 @@ extends EntityDefinition
 @export_group("Visual")
 ## Sprite nella schermata di combattimento. Se vuota usa il colore dell'icona.
 @export var combat_texture: Texture2D
+## Scena animata nella schermata di combattimento (sostituisce combat_texture).
+## Va disegnata centrata in (0, 0) per un riquadro grande CombatSettings.scene_reference_size.
+## Animazioni usate: "idle", "attack" (se vince), "defeat" (se perde).
+@export var combat_scene: PackedScene
 
 
 func create_entity() -> BoardEntity:

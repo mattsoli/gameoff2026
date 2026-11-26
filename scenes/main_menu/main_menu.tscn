@@ -42,10 +42,19 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 64
 
+[node name="Logo" type="TextureRect" parent="Center/Column" unique_id=326213131]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(900, 360)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
 [node name="TitleLabel" type="Label" parent="Center/Column" unique_id=536337983]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 96
+theme_type_variation = &"TitleLabel"
 text = "Game title"
 horizontal_alignment = 1
 
@@ -54,5 +63,5 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(360, 96)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 40
+theme_type_variation = &"PrimaryButton"
 text = "Play"
