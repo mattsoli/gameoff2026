@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="TileDefinition" format=3 uid="uid://b1m567jort8ih"]
 
 [ext_resource type="Script" uid="uid://cw13whhvesxmr" path="res://src/settings/tile_definition.gd" id="1_u60f2"]
-[ext_resource type="Texture2D" uid="uid://b431f0uupuj5l" path="res://assets/tessera.png" id="2_6yvw6"]
+[ext_resource type="Texture2D" uid="uid://b3wngw17f2t2f" path="res://assets/Tessera01.png" id="2_wbfai"]
+[ext_resource type="Texture2D" uid="uid://rj1ee34p7dki" path="res://assets/Tessera02.png" id="3_ijdyc"]
 
 [resource]
 script = ExtResource("1_u60f2")
 id = &"floor"
 display_name = "Floor"
 accent_color = Color(0.3, 0.33, 0.4, 1)
-texture = ExtResource("2_6yvw6")
+texture_variants = Array[Texture2D]([ExtResource("2_wbfai"), ExtResource("3_ijdyc")])

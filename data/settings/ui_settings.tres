@@ -4,10 +4,12 @@
 [ext_resource type="Script" uid="uid://wdl32q0sit3m" path="res://src/settings/ui/ui_animation.gd" id="2_dbu1s"]
 [ext_resource type="Script" uid="uid://csriqntp7scqs" path="res://src/settings/ui/button_state_effect.gd" id="2_j2qu1"]
 [ext_resource type="Script" uid="uid://blp5rf3kj6aep" path="res://src/settings/ui/screen_background.gd" id="3_wdt5l"]
-[ext_resource type="Texture2D" uid="uid://3d28fgbeswuu" path="res://assets/Fondo.png" id="4_j2qu1"]
 [ext_resource type="Script" uid="uid://cdm51gpmru5x7" path="res://src/settings/ui/button_feedback.gd" id="4_qpioc"]
 [ext_resource type="Script" uid="uid://sksk5nd5xv6r" path="res://src/settings/ui/ui_settings.gd" id="5_qpioc"]
 [ext_resource type="Theme" uid="uid://ccuhfibspu2e5" path="res://data/settings/ui_theme.tres" id="6_dbu1s"]
+[ext_resource type="Texture2D" uid="uid://creiwito1akac" path="res://assets/ui/Fondo.jpg" id="6_pthnc"]
+[ext_resource type="Texture2D" uid="uid://d1n1hd5e70au7" path="res://assets/ui/Fondo_menu.jpg" id="7_pthnc"]
+[ext_resource type="Texture2D" uid="uid://bjapvef1s0kt7" path="res://assets/ui/Titolo.png" id="7_qpioc"]
 
 [sub_resource type="Resource" id="Resource_pthnc"]
 script = ExtResource("1_0c2jj")
@@ -49,7 +51,7 @@ color = Color(0.05, 0.06, 0.08, 1)
 
 [sub_resource type="Resource" id="Resource_t4kc0"]
 script = ExtResource("3_wdt5l")
-texture = ExtResource("4_j2qu1")
+texture = ExtResource("6_pthnc")
 
 [sub_resource type="Resource" id="Resource_ignwl"]
 script = ExtResource("1_0c2jj")
@@ -59,7 +61,7 @@ transition = 7
 
 [sub_resource type="Resource" id="Resource_c8vmv"]
 script = ExtResource("3_wdt5l")
-texture = ExtResource("4_j2qu1")
+texture = ExtResource("7_pthnc")
 
 [sub_resource type="Resource" id="Resource_dabjp"]
 script = ExtResource("1_0c2jj")
@@ -91,6 +93,7 @@ easing = 0
 script = ExtResource("5_qpioc")
 theme = ExtResource("6_dbu1s")
 menu_background = SubResource("Resource_c8vmv")
+menu_logo = ExtResource("7_qpioc")
 menu_title_appear = SubResource("Resource_bya7h")
 menu_buttons_appear = SubResource("Resource_dabjp")
 game_background = SubResource("Resource_t4kc0")

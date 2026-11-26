@@ -1,6 +1,17 @@
 [gd_resource type="Theme" format=3 uid="uid://ccuhfibspu2e5"]
 
-[ext_resource type="Texture2D" uid="uid://b431f0uupuj5l" path="res://assets/tessera.png" id="1_oqe2t"]
+[ext_resource type="Texture2D" uid="uid://cugw8wm20podq" path="res://assets/ui/pulsante_play_vuoto.png" id="1_p2fmm"]
+[ext_resource type="Texture2D" uid="uid://c2v4fel6o0aey" path="res://assets/ui/pulsante_play.png" id="1_vc7m5"]
+[ext_resource type="FontFile" uid="uid://bjelfh3v2hnlc" path="res://assets/fonts/eEpicSlap.ttf" id="2_vc7m5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pthnc"]
+texture = ExtResource("1_p2fmm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_or6h7"]
+texture = ExtResource("1_p2fmm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fko1v"]
+texture = ExtResource("1_p2fmm")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jewmd"]
 bg_color = Color(0.13, 0.14, 0.18, 0.98)
@@ -14,16 +25,35 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ovp_hover"]
+texture = ExtResource("1_p2fmm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ovp_normal"]
+texture = ExtResource("1_p2fmm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ovp_pressed"]
+texture = ExtResource("1_p2fmm")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbu1s"]
-texture = ExtResource("1_oqe2t")
+texture = ExtResource("1_vc7m5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eub1u"]
-texture = ExtResource("1_oqe2t")
+texture = ExtResource("1_vc7m5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqe2t"]
-texture = ExtResource("1_oqe2t")
+texture = ExtResource("1_vc7m5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqeha"]
+texture = ExtResource("1_p2fmm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ebjn"]
+texture = ExtResource("1_p2fmm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ob46e"]
+texture = ExtResource("1_p2fmm")
 
 [resource]
+default_font = ExtResource("2_vc7m5")
 default_font_size = 28
 AttackValueLabel/base_type = &"Label"
 AttackValueLabel/colors/font_color = Color(1, 0.8, 0.35, 1)
@@ -33,11 +63,27 @@ AttackValueLabel/font_sizes/font_size = 72
 CombatantNameLabel/base_type = &"Label"
 CombatantNameLabel/font_sizes/font_size = 40
 HudButton/base_type = &"Button"
+HudButton/colors/font_color = Color(0, 0.15686275, 0.14901961, 1)
+HudButton/colors/font_focus_color = Color(0, 0.15686275, 0.14901961, 1)
+HudButton/colors/font_hover_color = Color(0, 0.15686275, 0.14901961, 1)
+HudButton/colors/font_pressed_color = Color(0, 0.15686275, 0.14901961, 1)
 HudButton/font_sizes/font_size = 28
+HudButton/styles/hover = SubResource("StyleBoxTexture_pthnc")
+HudButton/styles/normal = SubResource("StyleBoxTexture_or6h7")
+HudButton/styles/pressed = SubResource("StyleBoxTexture_fko1v")
 HudLabel/base_type = &"Label"
-HudLabel/font_sizes/font_size = 28
+HudLabel/font_sizes/font_size = 32
 OverlayPanel/base_type = &"PanelContainer"
 OverlayPanel/styles/panel = SubResource("StyleBoxFlat_jewmd")
+OverlayPrimaryButton/base_type = &"Button"
+OverlayPrimaryButton/colors/font_color = Color(0, 0.15686275, 0.14901961, 1)
+OverlayPrimaryButton/colors/font_focus_color = Color(0, 0.15686275, 0.14901961, 1)
+OverlayPrimaryButton/colors/font_hover_color = Color(0, 0.15686275, 0.14901961, 1)
+OverlayPrimaryButton/colors/font_pressed_color = Color(0, 0.15686275, 0.14901961, 1)
+OverlayPrimaryButton/font_sizes/font_size = 36
+OverlayPrimaryButton/styles/hover = SubResource("StyleBoxTexture_ovp_hover")
+OverlayPrimaryButton/styles/normal = SubResource("StyleBoxTexture_ovp_normal")
+OverlayPrimaryButton/styles/pressed = SubResource("StyleBoxTexture_ovp_pressed")
 OverlayTitleLabel/base_type = &"Label"
 OverlayTitleLabel/font_sizes/font_size = 52
 PrimaryButton/base_type = &"Button"
@@ -50,7 +96,14 @@ ResultLabel/font_sizes/font_size = 36
 ScreenTitleLabel/base_type = &"Label"
 ScreenTitleLabel/font_sizes/font_size = 56
 SecondaryButton/base_type = &"Button"
+SecondaryButton/colors/font_color = Color(0, 0.15686275, 0.14901961, 1)
+SecondaryButton/colors/font_focus_color = Color(0, 0.15686275, 0.14901961, 1)
+SecondaryButton/colors/font_hover_color = Color(0, 0.15686275, 0.14901961, 1)
+SecondaryButton/colors/font_pressed_color = Color(0, 0.15686275, 0.14901961, 1)
 SecondaryButton/font_sizes/font_size = 32
+SecondaryButton/styles/hover = SubResource("StyleBoxTexture_uqeha")
+SecondaryButton/styles/normal = SubResource("StyleBoxTexture_0ebjn")
+SecondaryButton/styles/pressed = SubResource("StyleBoxTexture_ob46e")
 TitleLabel/base_type = &"Label"
 TitleLabel/font_sizes/font_size = 96
 VsLabel/base_type = &"Label"

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TileDefinition" format=3 uid="uid://ceeqlavbqqe5p"]
 
 [ext_resource type="Script" uid="uid://cw13whhvesxmr" path="res://src/settings/tile_definition.gd" id="1_xoiky"]
-[ext_resource type="Texture2D" uid="uid://k6t8rc5p1247" path="res://assets/Icona_muro2.png" id="2_7hbw7"]
+[ext_resource type="Texture2D" uid="uid://hgmkbm7pdp6j" path="res://assets/TesseraMuro02.png" id="2_7hbw7"]
 
 [resource]
 script = ExtResource("1_xoiky")

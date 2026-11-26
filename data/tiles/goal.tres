@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="TileDefinition" format=3 uid="uid://d002sx1i2c56q"]
 
 [ext_resource type="Script" uid="uid://cw13whhvesxmr" path="res://src/settings/tile_definition.gd" id="1_h1nk8"]
-[ext_resource type="Texture2D" uid="uid://b431f0uupuj5l" path="res://assets/tessera.png" id="2_rt2xk"]
 [ext_resource type="Texture2D" uid="uid://b7rqjx0ir45ko" path="res://assets/Pecora_locked.png" id="3_olt6e"]
 [ext_resource type="Texture2D" uid="uid://3g4y2yq137um" path="res://assets/Pecora_unlocked.png" id="4_olt6e"]
+[ext_resource type="Texture2D" uid="uid://b3wngw17f2t2f" path="res://assets/Tessera01.png" id="4_vyd08"]
+[ext_resource type="Texture2D" uid="uid://rj1ee34p7dki" path="res://assets/Tessera02.png" id="5_wbaal"]
 
 [resource]
 script = ExtResource("1_h1nk8")
@@ -11,6 +12,6 @@ id = &"goal"
 display_name = "Goal"
 is_goal = true
 accent_color = Color(0.25, 0.75, 0.55, 1)
-texture = ExtResource("2_rt2xk")
+texture_variants = Array[Texture2D]([ExtResource("4_vyd08"), ExtResource("5_wbaal")])
 texture_unlocked = ExtResource("4_olt6e")
 texture_locked = ExtResource("3_olt6e")
