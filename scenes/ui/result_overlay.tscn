@@ -1,6 +1,7 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scenes/ui/result_overlay.gd" id="1_script"]
+[ext_resource type="Script" path="res://src/ui/feedback_button.gd" id="fb_script"]
 
 [node name="ResultOverlay" type="CanvasLayer"]
 layer = 20
@@ -74,6 +75,7 @@ custom_minimum_size = Vector2(300, 72)
 layout_mode = 2
 theme_type_variation = &"PrimaryButton"
 text = "OK"
+script = ExtResource("fb_script")
 
 [node name="SecondaryButton" type="Button" parent="Root/Center/Panel/Margin/Column/Buttons"]
 unique_name_in_owner = true
@@ -81,3 +83,4 @@ custom_minimum_size = Vector2(300, 72)
 layout_mode = 2
 theme_type_variation = &"SecondaryButton"
 text = "Cancel"
+script = ExtResource("fb_script")

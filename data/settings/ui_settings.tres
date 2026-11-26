@@ -15,28 +15,33 @@ start_scale = Vector2(0.92, 0.92)
 duration = 0.35
 transition = 7
 
-[sub_resource type="Resource" id="Resource_or6h7"]
+[sub_resource type="Resource" id="Resource_qpioc"]
 script = ExtResource("2_j2qu1")
-scale = Vector2(1.05, 1.05)
-rotation_degrees = 31.0
+scale = Vector2(1.08, 1.08)
+offset = Vector2(0, -4)
+
+[sub_resource type="Resource" id="Resource_or6h7"]
+script = ExtResource("2_dbu1s")
+duration = 0.18
+transition = 10
 
 [sub_resource type="Resource" id="Resource_ey1ek"]
 script = ExtResource("2_dbu1s")
+duration = 0.08
 
 [sub_resource type="Resource" id="Resource_grpk8"]
-script = ExtResource("2_dbu1s")
-duration = 2.77
-
-[sub_resource type="Resource" id="Resource_dfyvy"]
 script = ExtResource("2_j2qu1")
-scale = Vector2(0.95, 0.95)
+scale = Vector2(0.94, 0.94)
+offset = Vector2(0, 2)
+tint = Color(0.85, 0.85, 0.85, 1)
 
-[sub_resource type="Resource" id="Resource_7tipk"]
+[sub_resource type="Resource" id="Resource_j2qu1"]
 script = ExtResource("4_qpioc")
-hover = SubResource("Resource_or6h7")
-pressed = SubResource("Resource_dfyvy")
-hover_animation = SubResource("Resource_ey1ek")
-press_animation = SubResource("Resource_grpk8")
+hover = SubResource("Resource_qpioc")
+pressed = SubResource("Resource_grpk8")
+hover_animation = SubResource("Resource_or6h7")
+press_animation = SubResource("Resource_ey1ek")
+metadata/_custom_type_script = "uid://cdm51gpmru5x7"
 
 [sub_resource type="Resource" id="Resource_fko1v"]
 script = ExtResource("3_wdt5l")
@@ -94,4 +99,4 @@ board_appear = SubResource("Resource_pthnc")
 combat_background = SubResource("Resource_fko1v")
 overlay_appear = SubResource("Resource_2rcnt")
 overlay_disappear = SubResource("Resource_s2xnt")
-button_feedback = SubResource("Resource_7tipk")
+button_feedback = SubResource("Resource_j2qu1")

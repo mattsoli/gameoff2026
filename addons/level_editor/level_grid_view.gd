@@ -143,8 +143,9 @@ func _draw_tile_layer(rect: Rect2, symbol: String) -> void:
 		_draw_unknown(rect, symbol)
 		return
 	var tile: TileDefinition = _legend.tiles[symbol]
-	if tile.texture != null:
-		draw_texture_rect(tile.texture, rect, false)
+	var texture: Texture2D = tile.get_texture(_variant_seed_for(rect))
+	if texture != null:
+		draw_texture_rect(texture, rect, false)
 	else:
 		draw_rect(rect, tile.color)
 		if tile.pattern == TileDefinition.Pattern.HATCHED:
@@ -198,3 +199,9 @@ func _draw_unknown(rect: Rect2, symbol: String) -> void:
 
 func _draw_label(text: String, center: Vector2, color: Color = LABEL_COLOR) -> void:
 	DrawUtils.draw_centered_text(self, text, center, _cell_size, int(_cell_size * 0.4), color)
+
+
+## Variante di texture stabile per cella: dipende solo dalla posizione disegnata.
+func _variant_seed_for(rect: Rect2) -> int:
+	var cell: Vector2i = local_to_cell(rect.get_center())
+	return cell.x * 73856093 ^ cell.y * 19349663

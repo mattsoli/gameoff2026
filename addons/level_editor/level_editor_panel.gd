@@ -173,7 +173,7 @@ func _rebuild_palette() -> void:
 
 	for symbol: String in legend.tiles:
 		var tile: TileDefinition = legend.tiles[symbol]
-		_add_brush_button(_tiles_flow, _get_name(tile.display_name, symbol), _make_icon(tile.color, tile.texture), LevelLayoutGrid.Layer.TILES, symbol)
+		_add_brush_button(_tiles_flow, _get_name(tile.display_name, symbol), _make_icon(tile.color, tile.get_texture(0)), LevelLayoutGrid.Layer.TILES, symbol)
 	_add_brush_button(_entities_flow, "Player start", _make_icon(LevelGridView.PLAYER_COLOR, null), LevelLayoutGrid.Layer.ENTITIES, legend.player_start_symbol)
 	for symbol: String in legend.entities:
 		var entity: EntityDefinition = legend.entities[symbol]

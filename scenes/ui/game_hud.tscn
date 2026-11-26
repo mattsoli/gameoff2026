@@ -1,6 +1,7 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scenes/ui/game_hud.gd" id="1_script"]
+[ext_resource type="Script" path="res://src/ui/feedback_button.gd" id="fb_script"]
 
 [node name="GameHud" type="MarginContainer"]
 anchors_preset = 10
@@ -55,6 +56,7 @@ layout_mode = 2
 theme_type_variation = &"HudButton"
 focus_mode = 0
 text = "Retry (R)"
+script = ExtResource("fb_script")
 
 [node name="MenuButton" type="Button" parent="Bar"]
 unique_name_in_owner = true
@@ -63,3 +65,4 @@ layout_mode = 2
 theme_type_variation = &"HudButton"
 focus_mode = 0
 text = "Menu"
+script = ExtResource("fb_script")

@@ -20,9 +20,25 @@ enum Pattern { FLAT, HATCHED }
 @export var pattern: Pattern = Pattern.FLAT
 ## Se assegnata sostituisce il disegno placeholder.
 @export var texture: Texture2D
+## Varianti: se la lista non è vuota ogni casella di questo tipo sceglie a caso una di queste
+## immagini (al posto di `texture`), per dare più varietà alla board. La scelta resta fissa
+## per tutta la partita, anche quando la casella scorre con lo shift.
+@export var texture_variants: Array[Texture2D] = []
 @export var texture_unlocked: Texture2D
 @export var texture_locked: Texture2D
 ## Scena animata a mano (sprite + AnimationPlayer). Se assegnata sostituisce texture e disegno di prova.
 ## Va disegnata centrata in (0, 0) per una casella grande quanto BoardVisualSettings.scene_reference_size.
 ## Animazioni usate: "idle"; per gli obiettivi anche "unlock" (alla raccolta della chiave) e "unlocked".
 @export var board_scene: PackedScene
+
+
+## Immagine da usare per una casella: una variante scelta da `variant_seed` se ce ne sono,
+## altrimenti `texture` (che può essere null: in quel caso si disegna il placeholder).
+func get_texture(variant_seed: int) -> Texture2D:
+	var variants: Array[Texture2D] = []
+	for variant: Texture2D in texture_variants:
+		if variant != null:
+			variants.append(variant)
+	if variants.is_empty():
+		return texture
+	return variants[posmod(variant_seed, variants.size())]

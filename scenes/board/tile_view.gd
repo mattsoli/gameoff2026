@@ -94,8 +94,9 @@ func _get_rect() -> Rect2:
 
 func _draw_tile(rect: Rect2) -> void:
 	var tile: TileDefinition = cell_data.tile
-	if tile.texture != null:
-		draw_texture_rect(tile.texture, rect, false)
+	var texture: Texture2D = tile.get_texture(cell_data.variant_seed)
+	if texture != null:
+		draw_texture_rect(texture, rect, false)
 		return
 	_tile_style.bg_color = tile.color
 	draw_style_box(_tile_style, rect)

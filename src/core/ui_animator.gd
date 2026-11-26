@@ -67,6 +67,10 @@ static func fade_to(control: CanvasItem, alpha: float, animation: UiAnimation) -
 	await tween.finished
 
 
-## Reazione animata del pulsante al mouse, secondo il ButtonFeedback del suo stile del Theme.
+## Reazione animata del pulsante al mouse. Precedenza: Feedback Override del pulsante
+## (se è un FeedbackButton) -> effetto dello stile del Theme -> effetto generale.
 static func attach_button_feedback(button: BaseButton, ui: UiSettings) -> void:
-	ButtonFeedbackController.attach(button, ui.get_button_feedback(button.theme_type_variation))
+	var feedback: ButtonFeedback = ui.get_button_feedback(button.theme_type_variation)
+	if button is FeedbackButton and (button as FeedbackButton).feedback_override != null:
+		feedback = (button as FeedbackButton).feedback_override
+	ButtonFeedbackController.attach(button, feedback)

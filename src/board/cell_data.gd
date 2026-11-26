@@ -8,6 +8,9 @@ extends RefCounted
 var tile: TileDefinition
 var arrow: Direction.Type = Direction.Type.NONE
 var entity: BoardEntity
+## Numero casuale fissato alla creazione: sceglie la variante di texture della casella.
+## Sta qui (e non nella view) così la scelta si sposta con la casella durante lo shift.
+var variant_seed: int = randi()
 
 
 func _init(p_tile: TileDefinition, p_arrow: Direction.Type = Direction.Type.NONE, p_entity: BoardEntity = null) -> void:
