@@ -32,8 +32,9 @@ func _apply_theme(ui: UiSettings) -> void:
 		DrawUtils.board_font = ui.theme.default_font
 
 
-func start_new_run() -> void:
-	current_level_index = 0
+## Avvia la partita dal livello `level_index` (0 = il primo).
+func start_new_run(level_index: int = 0) -> void:
+	current_level_index = clampi(level_index, 0, settings.levels.size() - 1)
 	_test_level = null
 	go_to_game()
 
@@ -74,6 +75,10 @@ func go_to_game() -> void:
 
 func go_to_main_menu() -> void:
 	_change_scene(settings.main_menu_scene)
+
+
+func go_to_level_select() -> void:
+	_change_scene(settings.level_select_scene)
 
 
 func _change_scene(path: String) -> void:

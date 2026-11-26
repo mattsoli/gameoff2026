@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bw1h8btr4x8in"]
+
+[ext_resource type="Script" uid="uid://bn370hejoahhm" path="res://scenes/level_select/level_select.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://b3s6qvha5h3xh" path="res://src/ui/feedback_button.gd" id="fb_script"]
+
+[node name="LevelSelect" type="Control" unique_id=1178395638]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+back_text = ""
+
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=1115780541]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.06, 0.07, 0.09, 1)
+
+[node name="BackgroundTexture" type="TextureRect" parent="." unique_id=557557188]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1629763584]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 40.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_type_variation = &"ScreenTitleLabel"
+text = "Levels"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="." unique_id=640152445]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 150.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="Center" type="CenterContainer" parent="Scroll" unique_id=1617577212]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid" type="GridContainer" parent="Scroll/Center" unique_id=1917619927]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+
+[node name="BackButton" type="Button" parent="." unique_id=285602593]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 280.0
+offset_bottom = 130.0
+focus_mode = 0
+theme_type_variation = &"BackButton"
+script = ExtResource("fb_script")

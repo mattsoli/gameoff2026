@@ -14,16 +14,23 @@ const SETTINGS_PATH: String = "res://data/settings/game_settings.tres"
 @export var combat: CombatSettings
 ## Aspetto e animazioni dell'interfaccia (theme, sfondi, comparse, pulsanti).
 @export var ui: UiSettings
+## Colonna sonora ed effetti sonori.
+@export var audio: AudioSettings
 
 @export_group("Regole")
 ## Se true tenendo premuto un tasto direzione la pedina continua a muoversi.
 @export var hold_to_move: bool = true
+## Quanti livelli sono giocabili dalla schermata dei livelli (dal primo in poi).
+## 0 = tutti sbloccati.
+@export_range(0, 999) var unlocked_levels: int = 0
 
 @export_group("Scene")
 @export_file("*.tscn") var main_menu_scene: String = "res://scenes/main_menu/main_menu.tscn"
 @export_file("*.tscn") var game_scene: String = "res://scenes/game/game.tscn"
+@export_file("*.tscn") var level_select_scene: String = "res://scenes/level_select/level_select.tscn"
 
 var _fallback_ui: UiSettings
+var _fallback_audio: AudioSettings
 
 
 ## UiSettings sempre valide: se il campo `ui` è vuoto si usano i valori predefiniti.
@@ -33,3 +40,19 @@ func get_ui() -> UiSettings:
 	if _fallback_ui == null:
 		_fallback_ui = UiSettings.new()
 	return _fallback_ui
+
+
+## AudioSettings sempre valide: se il campo `audio` è vuoto il gioco resta muto.
+func get_audio() -> AudioSettings:
+	if audio != null:
+		return audio
+	if _fallback_audio == null:
+		_fallback_audio = AudioSettings.new()
+	return _fallback_audio
+
+
+## Numero di livelli giocabili nella schermata dei livelli.
+func get_unlocked_level_count() -> int:
+	if unlocked_levels <= 0:
+		return levels.size()
+	return mini(unlocked_levels, levels.size())

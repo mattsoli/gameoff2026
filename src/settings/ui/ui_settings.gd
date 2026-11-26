@@ -15,8 +15,32 @@ extends Resource
 ## Se assegnata, l'immagine del logo sostituisce il titolo testuale.
 @export var menu_logo: Texture2D
 @export var menu_logo_size: Vector2 = Vector2(900.0, 360.0)
+## Secondo logo in basso al centro (es. lo studio). Vuoto = nascosto.
+@export var menu_footer_logo: Texture2D
+@export var menu_footer_logo_size: Vector2 = Vector2(420.0, 160.0)
+## Comparsa dei loghi.
 @export var menu_title_appear: UiTransition = UiTransition.create_transition(0.5, Vector2(0.0, -40.0))
+## Comparsa dei pulsanti (Play, Levels, audio).
 @export var menu_buttons_appear: UiTransition = _create_delayed_transition(0.4, Vector2(0.0, 40.0), 0.2)
+## Icone dei pulsanti audio in alto a sinistra. Senza icone i pulsanti mostrano un testo.
+@export var music_on_icon: Texture2D
+@export var music_off_icon: Texture2D
+@export var sound_on_icon: Texture2D
+@export var sound_off_icon: Texture2D
+
+@export_group("Schermata livelli")
+@export var level_select_background: ScreenBackground = ScreenBackground.create(Color(0.06, 0.07, 0.09))
+## Numero massimo di colonne della griglia: con meno livelli le colonne si riducono.
+@export_range(1, 12) var level_select_max_columns: int = 4
+## Lato dei pulsanti quadrati dei livelli, in pixel.
+@export var level_button_size: Vector2 = Vector2(240.0, 240.0)
+## Spazio tra un pulsante e l'altro.
+@export var level_grid_spacing: Vector2 = Vector2(48.0, 48.0)
+## Icona sui livelli bloccati (vuota = solo il pulsante disabilitato).
+@export var level_locked_icon: Texture2D
+## Comparsa di ogni pulsante; ognuno parte un po' dopo il precedente (level_buttons_stagger).
+@export var level_buttons_appear: UiTransition = UiTransition.create_transition(0.3, Vector2.ZERO, Vector2(0.8, 0.8), Tween.TRANS_BACK)
+@export_range(0.0, 1.0, 0.01, "suffix:s") var level_buttons_stagger: float = 0.04
 
 @export_group("Gioco")
 @export var game_background: ScreenBackground = ScreenBackground.create(Color(0.06, 0.07, 0.09))

@@ -26,6 +26,7 @@ var _is_busy: bool = false
 
 func _ready() -> void:
 	_settings = RunManager.settings
+	AudioManager.play_music(_settings.get_audio().game_music)
 	var ui: UiSettings = _settings.get_ui()
 	if ui.game_background != null:
 		ui.game_background.apply(_background_color, _background_texture)
@@ -104,11 +105,14 @@ func _request_move(direction: Direction.Type, show_blocked_feedback: bool) -> vo
 	_board_view.clear_reachable_cells()
 	match move.type:
 		MoveResult.Type.BLOCKED:
+			AudioManager.play_sfx(_settings.get_audio().pawn_bump)
 			await _board_view.play_pawn_bump(direction)
 		MoveResult.Type.MOVED:
+			AudioManager.play_sfx(_settings.get_audio().pawn_move)
 			await _board_view.play_pawn_move(move.to)
 			await _handle_arrival(_session.arrive())
 		MoveResult.Type.COMBAT:
+			AudioManager.play_sfx(_settings.get_audio().pawn_move)
 			await _board_view.play_pawn_move(move.to)
 			await _handle_combat(move)
 	_is_busy = false
@@ -118,7 +122,11 @@ func _request_move(direction: Direction.Type, show_blocked_feedback: bool) -> vo
 func _handle_combat(move: MoveResult) -> void:
 	var player: Combatant = Combatant.from_player(_session.player)
 	var enemy: Combatant = Combatant.from_enemy(move.enemy)
+	var audio: AudioSettings = _settings.get_audio()
+	AudioManager.play_music(audio.get_combat_music())
 	var result: CombatResult = await _combat_screen.run_combat(player, enemy, _settings.combat)
+	AudioManager.play_sfx(audio.combat_win if result.is_player_winner else audio.combat_lose)
+	AudioManager.play_music(audio.game_music)
 	var arrival: ArrivalResult = _session.resolve_combat(result)
 	if not result.is_player_winner:
 		# Game over: il livello ricomincia subito da capo.
@@ -129,18 +137,26 @@ func _handle_combat(move: MoveResult) -> void:
 
 func _handle_arrival(arrival: ArrivalResult) -> void:
 	_board_view.refresh_cells()
+	var audio: AudioSettings = _settings.get_audio()
 	if arrival.picked_key:
+		AudioManager.play_sfx(audio.key_pickup)
 		_board_view.set_goals_unlocked(true)
+	if arrival.picked_weapon != null:
+		AudioManager.play_sfx(audio.weapon_pickup)
 	_board_view.set_player_attack(_session.player.get_attack())
 	_refresh()
 
 	if arrival.reached_goal:
 		await _show_level_completed()
 	elif arrival.shift != null:
+		AudioManager.play_sfx(audio.shift)
 		await _board_view.play_shift(arrival.shift)
 
 
 func _show_level_completed() -> void:
+	var audio: AudioSettings = _settings.get_audio()
+	AudioManager.play_sfx(audio.level_complete)
+	AudioManager.play_music(audio.get_level_complete_music())
 	if RunManager.has_next_level():
 		if await _result_overlay.ask(level_completed_title, "", next_level_text, menu_text):
 			RunManager.advance_to_next_level()

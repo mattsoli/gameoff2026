@@ -74,3 +74,12 @@ static func attach_button_feedback(button: BaseButton, ui: UiSettings) -> void:
 	if button is FeedbackButton and (button as FeedbackButton).feedback_override != null:
 		feedback = (button as FeedbackButton).feedback_override
 	ButtonFeedbackController.attach(button, feedback)
+	_attach_button_sounds(button)
+
+
+## Suoni di passaggio del mouse e clic (AudioSettings.button_hover / button_click).
+static func _attach_button_sounds(button: BaseButton) -> void:
+	button.mouse_entered.connect(func() -> void:
+		if not button.disabled:
+			AudioManager.play_sfx(AudioManager.get_settings().button_hover))
+	button.pressed.connect(func() -> void: AudioManager.play_sfx(AudioManager.get_settings().button_click))

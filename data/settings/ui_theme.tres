@@ -1,8 +1,23 @@
 [gd_resource type="Theme" format=3 uid="uid://ccuhfibspu2e5"]
 
 [ext_resource type="Texture2D" uid="uid://cugw8wm20podq" path="res://assets/ui/pulsante_play_vuoto.png" id="1_p2fmm"]
+[ext_resource type="Texture2D" uid="uid://dyft7oygl5wtu" path="res://assets/Freccia_sinistra.png" id="1_pmj0t"]
 [ext_resource type="Texture2D" uid="uid://c2v4fel6o0aey" path="res://assets/ui/pulsante_play.png" id="1_vc7m5"]
+[ext_resource type="Texture2D" uid="uid://r3qvtttqx26v" path="res://assets/ui/pulsante_levels.png" id="2_3rxir"]
+[ext_resource type="Texture2D" uid="uid://b3wngw17f2t2f" path="res://assets/Tessera01.png" id="2_bg5o8"]
 [ext_resource type="FontFile" uid="uid://bjelfh3v2hnlc" path="res://assets/fonts/eEpicSlap.ttf" id="2_vc7m5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bg5o8"]
+texture = ExtResource("1_pmj0t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmj0t"]
+texture = ExtResource("1_pmj0t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dlp6b"]
+texture = ExtResource("1_pmj0t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ybud"]
+texture = ExtResource("1_pmj0t")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pthnc"]
 texture = ExtResource("1_p2fmm")
@@ -12,6 +27,24 @@ texture = ExtResource("1_p2fmm")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fko1v"]
 texture = ExtResource("1_p2fmm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ob46e"]
+texture = ExtResource("2_bg5o8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqeha"]
+texture = ExtResource("2_bg5o8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wem23"]
+texture = ExtResource("2_bg5o8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkgqj"]
+texture = ExtResource("2_3rxir")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pie36"]
+texture = ExtResource("2_3rxir")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ewtf"]
+texture = ExtResource("2_3rxir")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jewmd"]
 bg_color = Color(0.13, 0.14, 0.18, 0.98)
@@ -43,13 +76,13 @@ texture = ExtResource("1_vc7m5")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqe2t"]
 texture = ExtResource("1_vc7m5")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqeha"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tmrbg"]
 texture = ExtResource("1_p2fmm")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ebjn"]
 texture = ExtResource("1_p2fmm")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ob46e"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nme38"]
 texture = ExtResource("1_p2fmm")
 
 [resource]
@@ -60,6 +93,12 @@ AttackValueLabel/colors/font_color = Color(1, 0.8, 0.35, 1)
 AttackValueLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 AttackValueLabel/constants/outline_size = 8
 AttackValueLabel/font_sizes/font_size = 72
+BackButton/base_type = &"Button"
+BackButton/font_sizes/font_size = 32
+BackButton/styles/focus = SubResource("StyleBoxTexture_bg5o8")
+BackButton/styles/hover = SubResource("StyleBoxTexture_pmj0t")
+BackButton/styles/normal = SubResource("StyleBoxTexture_dlp6b")
+BackButton/styles/pressed = SubResource("StyleBoxTexture_4ybud")
 CombatantNameLabel/base_type = &"Label"
 CombatantNameLabel/font_sizes/font_size = 40
 HudButton/base_type = &"Button"
@@ -73,6 +112,22 @@ HudButton/styles/normal = SubResource("StyleBoxTexture_or6h7")
 HudButton/styles/pressed = SubResource("StyleBoxTexture_fko1v")
 HudLabel/base_type = &"Label"
 HudLabel/font_sizes/font_size = 32
+IconButton/base_type = &"Button"
+IconButton/font_sizes/font_size = 22
+LevelButton/base_type = &"Button"
+LevelButton/colors/font_color = Color(0, 0, 0, 1)
+LevelButton/colors/font_focus_color = Color(0, 0, 0, 1)
+LevelButton/colors/font_hover_color = Color(0, 0, 0, 1)
+LevelButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+LevelButton/font_sizes/font_size = 44
+LevelButton/styles/hover = SubResource("StyleBoxTexture_ob46e")
+LevelButton/styles/normal = SubResource("StyleBoxTexture_uqeha")
+LevelButton/styles/pressed = SubResource("StyleBoxTexture_wem23")
+LevelsButton/base_type = &"Button"
+LevelsButton/font_sizes/font_size = 40
+LevelsButton/styles/hover = SubResource("StyleBoxTexture_xkgqj")
+LevelsButton/styles/normal = SubResource("StyleBoxTexture_pie36")
+LevelsButton/styles/pressed = SubResource("StyleBoxTexture_2ewtf")
 OverlayPanel/base_type = &"PanelContainer"
 OverlayPanel/styles/panel = SubResource("StyleBoxFlat_jewmd")
 OverlayPrimaryButton/base_type = &"Button"
@@ -101,9 +156,9 @@ SecondaryButton/colors/font_focus_color = Color(0, 0.15686275, 0.14901961, 1)
 SecondaryButton/colors/font_hover_color = Color(0, 0.15686275, 0.14901961, 1)
 SecondaryButton/colors/font_pressed_color = Color(0, 0.15686275, 0.14901961, 1)
 SecondaryButton/font_sizes/font_size = 32
-SecondaryButton/styles/hover = SubResource("StyleBoxTexture_uqeha")
+SecondaryButton/styles/hover = SubResource("StyleBoxTexture_tmrbg")
 SecondaryButton/styles/normal = SubResource("StyleBoxTexture_0ebjn")
-SecondaryButton/styles/pressed = SubResource("StyleBoxTexture_ob46e")
+SecondaryButton/styles/pressed = SubResource("StyleBoxTexture_nme38")
 TitleLabel/base_type = &"Label"
 TitleLabel/font_sizes/font_size = 96
 VsLabel/base_type = &"Label"

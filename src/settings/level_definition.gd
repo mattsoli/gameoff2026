@@ -6,6 +6,9 @@ extends Resource
 ## quindi "# . . #" e "#..#" sono equivalenti.
 
 @export var display_name: String = "Level"
+## Immagine sul pulsante del livello nella schermata dei livelli (es. il boss).
+## Vuota = si mostra il numero del livello.
+@export var select_icon: Texture2D
 @export var legend: LevelLegend:
 	set(value):
 		legend = value

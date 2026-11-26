@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://creiwito1akac" path="res://assets/ui/Fondo.jpg" id="6_pthnc"]
 [ext_resource type="Texture2D" uid="uid://d1n1hd5e70au7" path="res://assets/ui/Fondo_menu.jpg" id="7_pthnc"]
 [ext_resource type="Texture2D" uid="uid://bjapvef1s0kt7" path="res://assets/ui/Titolo.png" id="7_qpioc"]
+[ext_resource type="Texture2D" uid="uid://bnc7426rnyvpu" path="res://assets/stardice_logo.png" id="8_c8vmv"]
+[ext_resource type="Texture2D" uid="uid://737um73bjwtc" path="res://assets/ui/pulsante_musica_off.png" id="9_ignwl"]
+[ext_resource type="Texture2D" uid="uid://c2kje1dmjw2pd" path="res://assets/ui/pulsante_musica_on.png" id="10_c8vmv"]
+[ext_resource type="Texture2D" uid="uid://bsxkr54syasbv" path="res://assets/ui/pulsante_suoni_off.png" id="12_dabjp"]
+[ext_resource type="Texture2D" uid="uid://ccnmux2q8lce2" path="res://assets/ui/pulsante_suoni_on.png" id="13_bya7h"]
 
 [sub_resource type="Resource" id="Resource_pthnc"]
 script = ExtResource("1_0c2jj")
@@ -59,6 +64,16 @@ slide_offset = Vector2(0, -60)
 duration = 0.35
 transition = 7
 
+[sub_resource type="Resource" id="Resource_dfyvy"]
+script = ExtResource("1_0c2jj")
+start_scale = Vector2(0.8, 0.8)
+duration = 0.3
+transition = 10
+
+[sub_resource type="Resource" id="Resource_7tipk"]
+script = ExtResource("3_wdt5l")
+texture = ExtResource("6_pthnc")
+
 [sub_resource type="Resource" id="Resource_c8vmv"]
 script = ExtResource("3_wdt5l")
 texture = ExtResource("7_pthnc")
@@ -94,8 +109,15 @@ script = ExtResource("5_qpioc")
 theme = ExtResource("6_dbu1s")
 menu_background = SubResource("Resource_c8vmv")
 menu_logo = ExtResource("7_qpioc")
+menu_footer_logo = ExtResource("8_c8vmv")
 menu_title_appear = SubResource("Resource_bya7h")
 menu_buttons_appear = SubResource("Resource_dabjp")
+music_on_icon = ExtResource("10_c8vmv")
+music_off_icon = ExtResource("9_ignwl")
+sound_on_icon = ExtResource("13_bya7h")
+sound_off_icon = ExtResource("12_dabjp")
+level_select_background = SubResource("Resource_7tipk")
+level_buttons_appear = SubResource("Resource_dfyvy")
 game_background = SubResource("Resource_t4kc0")
 hud_appear = SubResource("Resource_ignwl")
 board_appear = SubResource("Resource_pthnc")
