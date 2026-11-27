@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://3wh0dmhnw8r1"
 [sub_resource type="Resource" id="Resource_b347k"]
 script = ExtResource("6_vb1y3")
 duration = 0.08
+transition = 9
 
 [sub_resource type="Resource" id="Resource_8a2qo"]
 script = ExtResource("6_vb1y3")
@@ -26,7 +27,7 @@ script = ExtResource("6_vb1y3")
 [sub_resource type="Resource" id="Resource_avkr2"]
 script = ExtResource("6_vb1y3")
 duration = 0.3
-transition = 7
+transition = 11
 easing = 2
 
 [resource]
@@ -35,6 +36,8 @@ tile_size = 150.0
 tile_gap = 0.0
 board_color = Color(0.101960786, 0.10980392, 0.14117648, 0)
 arrow = SubResource("Resource_lfrn8")
+reachable_preview_color = Color(3.272891e-06, 0.75001335, 0.9706482, 1)
+shift_preview_color = Color(0.3062031, 0.7235851, 0.99999994, 0.18039216)
 move_animation = SubResource("Resource_8a2qo")
 shift_animation = SubResource("Resource_avkr2")
 bump_animation = SubResource("Resource_b347k")
