@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://creiwito1akac" path="res://assets/ui/Fondo.jpg" id="6_pthnc"]
 [ext_resource type="Texture2D" uid="uid://d1n1hd5e70au7" path="res://assets/ui/Fondo_menu.jpg" id="7_pthnc"]
 [ext_resource type="Texture2D" uid="uid://bjapvef1s0kt7" path="res://assets/ui/Titolo.png" id="7_qpioc"]
-[ext_resource type="Texture2D" uid="uid://bnc7426rnyvpu" path="res://assets/stardice_logo.png" id="8_c8vmv"]
+[ext_resource type="Texture2D" uid="uid://bnc7426rnyvpu" path="res://assets/ui/stardice_logo.png" id="8_c8vmv"]
 [ext_resource type="Texture2D" uid="uid://737um73bjwtc" path="res://assets/ui/pulsante_musica_off.png" id="9_ignwl"]
 [ext_resource type="Texture2D" uid="uid://c2kje1dmjw2pd" path="res://assets/ui/pulsante_musica_on.png" id="10_c8vmv"]
 [ext_resource type="Texture2D" uid="uid://bsxkr54syasbv" path="res://assets/ui/pulsante_suoni_off.png" id="12_dabjp"]

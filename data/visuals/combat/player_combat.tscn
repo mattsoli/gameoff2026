@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cfvwx1pigwsma"]
 
-[ext_resource type="Texture2D" path="res://assets/Baddù.png" id="1_81pwt"]
+[ext_resource type="Texture2D" uid="uid://dpwpo34lpcput" path="res://assets/entities/Baddù.png" id="1_81pwt"]
 
 [sub_resource type="Animation" id="Animation_jol43"]
 length = 0.001

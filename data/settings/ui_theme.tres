@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dyft7oygl5wtu" path="res://assets/Freccia_sinistra.png" id="1_pmj0t"]
 [ext_resource type="Texture2D" uid="uid://c2v4fel6o0aey" path="res://assets/ui/pulsante_play.png" id="1_vc7m5"]
 [ext_resource type="Texture2D" uid="uid://r3qvtttqx26v" path="res://assets/ui/pulsante_levels.png" id="2_3rxir"]
-[ext_resource type="Texture2D" uid="uid://b3wngw17f2t2f" path="res://assets/Tessera01.png" id="2_bg5o8"]
+[ext_resource type="Texture2D" uid="uid://b3wngw17f2t2f" path="res://assets/tiles/Tessera01.png" id="2_bg5o8"]
 [ext_resource type="FontFile" uid="uid://bjelfh3v2hnlc" path="res://assets/fonts/eEpicSlap.ttf" id="2_vc7m5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bg5o8"]
