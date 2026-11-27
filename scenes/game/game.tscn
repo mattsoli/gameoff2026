@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/game_hud.tscn" id="3_hud"]
 [ext_resource type="PackedScene" uid="uid://m7w6dv5wyqnr" path="res://scenes/combat/combat_screen.tscn" id="4_combat"]
 [ext_resource type="PackedScene" path="res://scenes/ui/result_overlay.tscn" id="5_overlay"]
+[ext_resource type="PackedScene" path="res://scenes/cutscene/goal_cutscene.tscn" id="6_cutscene"]
 
 [node name="Game" type="Control" unique_id=405379659]
 layout_mode = 3
@@ -57,6 +58,9 @@ unique_name_in_owner = true
 layout_mode = 1
 
 [node name="CombatScreen" parent="." unique_id=730897768 instance=ExtResource("4_combat")]
+unique_name_in_owner = true
+
+[node name="GoalCutscene" parent="." instance=ExtResource("6_cutscene")]
 unique_name_in_owner = true
 
 [node name="ResultOverlay" parent="." unique_id=307151134 instance=ExtResource("5_overlay")]

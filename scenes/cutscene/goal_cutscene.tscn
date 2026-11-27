@@ -1,0 +1,31 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/cutscene/goal_cutscene.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/stage/stage_actor.tscn" id="2_actor"]
+
+[node name="GoalCutscene" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_script")
+
+[node name="Root" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerActor" parent="Root" instance=ExtResource("2_actor")]
+unique_name_in_owner = true
+offset_left = 420.0
+offset_top = 330.0
+offset_right = 840.0
+offset_bottom = 750.0
+
+[node name="SheepActor" parent="Root" instance=ExtResource("2_actor")]
+unique_name_in_owner = true
+offset_left = 1180.0
+offset_top = 450.0
+offset_right = 1480.0
+offset_bottom = 750.0

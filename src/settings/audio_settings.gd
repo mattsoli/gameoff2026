@@ -35,6 +35,9 @@ extends Resource
 @export var combat_win: AudioStream
 @export var combat_lose: AudioStream
 @export var level_complete: AudioStream
+## Cut scene di fine livello: la pecora scappa / viene presa (ultimo livello).
+@export var sheep_escape: AudioStream
+@export var sheep_caught: AudioStream
 
 
 func get_combat_music() -> AudioStream:

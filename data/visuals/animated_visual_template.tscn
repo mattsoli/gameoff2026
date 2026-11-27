@@ -1,6 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="Texture2D" path="res://assets/Icona_player.png" id="1_7r1sr"]
+[ext_resource type="Texture2D" uid="uid://dy3a48gw8sxyg" path="res://assets/entities/icona_player.png" id="1_7r1sr"]
 
 [sub_resource type="Animation" id="Animation_1uurg"]
 length = 0.001

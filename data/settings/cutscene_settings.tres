@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="CutsceneSettings" format=3]
+
+[ext_resource type="Script" path="res://src/settings/ui/ui_transition.gd" id="1_tr14l"]
+[ext_resource type="Script" path="res://src/settings/ui/ui_animation.gd" id="2_d2oyw"]
+[ext_resource type="PackedScene" path="res://data/visuals/cutscene/player_cutscene.tscn" id="3_uldg8"]
+[ext_resource type="Script" path="res://src/settings/cutscene_settings.gd" id="4_7v5ge"]
+[ext_resource type="PackedScene" path="res://data/visuals/cutscene/sheep_cutscene.tscn" id="5_r2p6g"]
+[ext_resource type="Texture2D" path="res://assets/entities/Icona_pecora.png" id="6_dd0gr"]
+
+[sub_resource type="Resource" id="Resource_lxoau"]
+script = ExtResource("1_tr14l")
+start_scale = Vector2(0.92, 0.92)
+duration = 0.3
+easing = 0
+
+[sub_resource type="Resource" id="Resource_kr2rx"]
+script = ExtResource("2_d2oyw")
+duration = 0.12
+
+[sub_resource type="Resource" id="Resource_lieog"]
+script = ExtResource("1_tr14l")
+duration = 0.35
+transition = 7
+
+[sub_resource type="Resource" id="Resource_rpbi7"]
+script = ExtResource("2_d2oyw")
+duration = 0.6
+easing = 2
+
+[sub_resource type="Resource" id="Resource_fph6w"]
+script = ExtResource("1_tr14l")
+duration = 0.35
+transition = 7
+
+[sub_resource type="Resource" id="Resource_iuslu"]
+script = ExtResource("1_tr14l")
+fade = false
+slide_offset = Vector2(1400, 0)
+duration = 0.9
+easing = 0
+
+[resource]
+script = ExtResource("4_7v5ge")
+pawn_stop = SubResource("Resource_kr2rx")
+board_hide = SubResource("Resource_lxoau")
+player_scene = ExtResource("3_uldg8")
+sheep_scene = ExtResource("5_r2p6g")
+sheep_texture = ExtResource("6_dd0gr")
+player_appear = SubResource("Resource_lieog")
+sheep_appear = SubResource("Resource_fph6w")
+sheep_escape = SubResource("Resource_iuslu")
+player_catch = SubResource("Resource_rpbi7")

@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://n1w6cbpllxbc" path="res://data/levels/level_02.tres" id="7_j336a"]
 [ext_resource type="Resource" uid="uid://de8hqvga2k043" path="res://data/levels/level_03.tres" id="8_jwwgd"]
 [ext_resource type="Resource" uid="uid://bpy3ki548qwwg" path="res://data/settings/ui_settings.tres" id="9_j336a"]
+[ext_resource type="Resource" path="res://data/settings/cutscene_settings.tres" id="10_cutscene"]
 
 [resource]
 script = ExtResource("7_a2h68")
@@ -17,5 +18,6 @@ player = ExtResource("6_qcty3")
 levels = Array[ExtResource("3_j336a")]([ExtResource("6_jaxr3"), ExtResource("7_j336a"), ExtResource("8_jwwgd")])
 board = ExtResource("1_pj6oq")
 combat = ExtResource("2_jaxr3")
+cutscene = ExtResource("10_cutscene")
 ui = ExtResource("9_j336a")
 audio = ExtResource("1_jwwgd")

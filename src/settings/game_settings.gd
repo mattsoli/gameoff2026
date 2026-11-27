@@ -12,6 +12,8 @@ const SETTINGS_PATH: String = "res://data/settings/game_settings.tres"
 @export var levels: Array[LevelDefinition] = []
 @export var board: BoardVisualSettings
 @export var combat: CombatSettings
+## Cut scene di fine livello (pecora che scappa o viene presa).
+@export var cutscene: CutsceneSettings
 ## Aspetto e animazioni dell'interfaccia (theme, sfondi, comparse, pulsanti).
 @export var ui: UiSettings
 ## Colonna sonora ed effetti sonori.
@@ -31,6 +33,7 @@ const SETTINGS_PATH: String = "res://data/settings/game_settings.tres"
 
 var _fallback_ui: UiSettings
 var _fallback_audio: AudioSettings
+var _fallback_cutscene: CutsceneSettings
 
 
 ## UiSettings sempre valide: se il campo `ui` è vuoto si usano i valori predefiniti.
@@ -49,6 +52,15 @@ func get_audio() -> AudioSettings:
 	if _fallback_audio == null:
 		_fallback_audio = AudioSettings.new()
 	return _fallback_audio
+
+
+## CutsceneSettings sempre valide: se il campo `cutscene` è vuoto si usano i valori predefiniti.
+func get_cutscene() -> CutsceneSettings:
+	if cutscene != null:
+		return cutscene
+	if _fallback_cutscene == null:
+		_fallback_cutscene = CutsceneSettings.new()
+	return _fallback_cutscene
 
 
 ## Numero di livelli giocabili nella schermata dei livelli.

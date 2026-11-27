@@ -104,6 +104,15 @@ func play_pawn_move(cell: Vector2i) -> void:
 	await tween.finished
 
 
+## La pedina fa solo una parte (`fraction`) del passo verso `cell` e si ferma lì.
+func play_pawn_stop(cell: Vector2i, fraction: float, animation: UiAnimation) -> void:
+	_pawn_view.play_move_animation()
+	var target: Vector2 = _pawn_view.position.lerp(cell_to_center(cell), fraction)
+	var tween: Tween = create_tween()
+	UiAnimation.tween_property(tween, _pawn_view, "position", target, animation)
+	await tween.finished
+
+
 func play_pawn_bump(direction: Direction.Type) -> void:
 	await _pawn_view.play_bump(direction, _settings.bump_distance, _settings.bump_animation)
 
