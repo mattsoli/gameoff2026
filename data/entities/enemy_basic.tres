@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://7pvxgqfrhk5t"]
 
+[ext_resource type="PackedScene" path="res://data/visuals/combat/enemy_basic_combat.tscn" id="1_56hkf"]
 [ext_resource type="Script" uid="uid://bgxeok7o21s3k" path="res://src/settings/enemy_definition.gd" id="1_gb0p6"]
 [ext_resource type="Texture2D" uid="uid://fytj3s85h4vo" path="res://assets/Scheletro_2.png" id="1_p4ort"]
 [ext_resource type="Texture2D" uid="uid://cnujwrt3dr411" path="res://assets/Icona_mostro.png" id="3_p4ort"]
@@ -8,6 +9,7 @@
 script = ExtResource("1_gb0p6")
 attack = 2
 combat_texture = ExtResource("1_p4ort")
+combat_scene = ExtResource("1_56hkf")
 id = &"enemy_basic"
 display_name = "Basic enemy"
 color = Color(0.8509804, 0.3019608, 0.34901962, 0)

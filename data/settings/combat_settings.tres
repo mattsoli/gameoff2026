@@ -13,9 +13,34 @@ script = ExtResource("1_7f3f5")
 duration = 0.15
 easing = 0
 
+[sub_resource type="Resource" id="Resource_7f3f5"]
+script = ExtResource("2_ds4yk")
+start_scale = Vector2(0.92, 0.92)
+easing = 0
+
+[sub_resource type="Resource" id="Resource_ds4yk"]
+script = ExtResource("2_ds4yk")
+start_scale = Vector2(0.92, 0.92)
+duration = 0.3
+transition = 7
+
 [sub_resource type="Resource" id="Resource_b3atx"]
 script = ExtResource("1_7f3f5")
+duration = 0.07
+transition = 0
+
+[sub_resource type="Resource" id="Resource_bmj36"]
+script = ExtResource("2_ds4yk")
+slide_offset = Vector2(600, 0)
+duration = 0.45
+transition = 7
+
+[sub_resource type="Resource" id="Resource_dq1oe"]
+script = ExtResource("2_ds4yk")
+slide_offset = Vector2(0, 40)
+start_scale = Vector2(0.8, 0.8)
 duration = 0.3
+easing = 0
 
 [sub_resource type="Resource" id="Resource_3h1ka"]
 script = ExtResource("2_ds4yk")
@@ -24,6 +49,18 @@ transition = 7
 
 [sub_resource type="Resource" id="Resource_ryxxa"]
 script = ExtResource("2_ds4yk")
+duration = 0.3
+easing = 0
+
+[sub_resource type="Resource" id="Resource_48k74"]
+script = ExtResource("2_ds4yk")
+slide_offset = Vector2(-600, 0)
+duration = 0.45
+transition = 7
+
+[sub_resource type="Resource" id="Resource_mxrrq"]
+script = ExtResource("2_ds4yk")
+slide_offset = Vector2(-600, 0)
 duration = 0.3
 easing = 0
 
@@ -37,9 +74,15 @@ transition = 7
 script = ExtResource("1_iunuj")
 pause_before_resolution = 0.5
 result_pause = 0.6
+board_hide = SubResource("Resource_7f3f5")
+board_show = SubResource("Resource_ds4yk")
 intro = SubResource("Resource_3h1ka")
 outro = SubResource("Resource_ryxxa")
+player_enter = SubResource("Resource_48k74")
+enemy_enter = SubResource("Resource_bmj36")
+player_exit = SubResource("Resource_mxrrq")
+enemy_exit = SubResource("Resource_dq1oe")
 attack = SubResource("Resource_t8jah")
 attack_return = SubResource("Resource_wg4r6")
-defeat = SubResource("Resource_b3atx")
+defeat_blink = SubResource("Resource_b3atx")
 result_appear = SubResource("Resource_mbglb")

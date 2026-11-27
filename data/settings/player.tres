@@ -3,9 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://d3gpaoahaw285" path="res://assets/Icona_player.png" id="1_1s5d4"]
 [ext_resource type="Script" uid="uid://wh2s4o0hc0u0" path="res://src/settings/player_definition.gd" id="1_jach6"]
 [ext_resource type="Texture2D" uid="uid://b0gxd2jptn68q" path="res://assets/Baddù.png" id="2_1s5d4"]
+[ext_resource type="PackedScene" path="res://data/visuals/combat/player_combat.tscn" id="2_iw7dq"]
 
 [resource]
 script = ExtResource("1_jach6")
 color = Color(0.4, 0.6, 1, 0)
 board_texture = ExtResource("1_1s5d4")
 combat_texture = ExtResource("2_1s5d4")
+combat_scene = ExtResource("2_iw7dq")

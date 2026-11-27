@@ -2,12 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dyetjypchsmlu" path="res://assets/Zombie.png" id="1_62qs3"]
 [ext_resource type="Script" uid="uid://bgxeok7o21s3k" path="res://src/settings/enemy_definition.gd" id="1_g5tga"]
+[ext_resource type="PackedScene" path="res://data/visuals/combat/enemy_strong_combat.tscn" id="1_lwxix"]
 [ext_resource type="Texture2D" uid="uid://cnujwrt3dr411" path="res://assets/Icona_mostro.png" id="3_62qs3"]
 
 [resource]
 script = ExtResource("1_g5tga")
 attack = 4
 combat_texture = ExtResource("1_62qs3")
+combat_scene = ExtResource("1_lwxix")
 id = &"enemy_strong"
 display_name = "Strong enemy"
 color = Color(0.6, 0.6, 0.69803923, 0)

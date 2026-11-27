@@ -50,7 +50,8 @@ extends Resource
 @export var board_appear: UiTransition = UiTransition.create_transition(0.35, Vector2.ZERO, Vector2(0.92, 0.92))
 
 @export_group("Combattimento")
-@export var combat_background: ScreenBackground = ScreenBackground.create(Color(0.05, 0.06, 0.08))
+## Sfondo dietro ai combattenti. Vuoto = si vede lo sfondo del gioco (la board sparisce).
+@export var combat_background: ScreenBackground
 
 @export_group("Finestre (fine livello, errori)")
 ## Colore che oscura il gioco dietro la finestra.

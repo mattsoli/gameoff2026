@@ -123,15 +123,24 @@ func _handle_combat(move: MoveResult) -> void:
 	var player: Combatant = Combatant.from_player(_session.player)
 	var enemy: Combatant = Combatant.from_enemy(move.enemy)
 	var audio: AudioSettings = _settings.get_audio()
+	var combat: CombatSettings = _settings.combat
 	AudioManager.play_music(audio.get_combat_music())
-	var result: CombatResult = await _combat_screen.run_combat(player, enemy, _settings.combat)
+	# La board sparisce: il combattimento si svolge sullo sfondo.
+	await UiAnimator.play_out(_board_view, combat.board_hide)
+	_board_view.visible = false
+	var result: CombatResult = await _combat_screen.run_combat(player, enemy, combat)
 	AudioManager.play_sfx(audio.combat_win if result.is_player_winner else audio.combat_lose)
 	AudioManager.play_music(audio.game_music)
 	var arrival: ArrivalResult = _session.resolve_combat(result)
 	if not result.is_player_winner:
-		# Game over: il livello ricomincia subito da capo.
+		# Game over: il livello ricomincia subito da capo (con la sua comparsa della board).
 		RunManager.restart_level()
 		return
+	# La board ricompare già senza il nemico sconfitto.
+	_board_view.refresh_cells()
+	UiAnimator.reset(_board_view)
+	_board_view.visible = true
+	await UiAnimator.play_in(_board_view, combat.board_show)
 	await _handle_arrival(arrival)
 
 

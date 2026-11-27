@@ -1,35 +1,16 @@
 [gd_scene format=3 uid="uid://c8mvkj0gt8kg3"]
 
 [ext_resource type="Script" uid="uid://q7y13jeahws" path="res://scenes/combat/combatant_panel.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://pj8v8b46uakn" path="res://assets/Icona_chiave.png" id="2_7bifa"]
 
-[node name="CombatantPanel" type="VBoxContainer" unique_id=2054049520]
-custom_minimum_size = Vector2(380, 0)
-theme_override_constants/separation = 16
+[node name="CombatantPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 420.0
+offset_bottom = 420.0
+mouse_filter = 2
 script = ExtResource("1_script")
 
-[node name="NameLabel" type="Label" parent="." unique_id=1174323936]
-unique_name_in_owner = true
-layout_mode = 2
-theme_type_variation = &"CombatantNameLabel"
-text = "Name"
-horizontal_alignment = 1
-
-[node name="SpriteHolder" type="Control" parent="." unique_id=1551045207]
-custom_minimum_size = Vector2(260, 260)
-layout_mode = 2
-size_flags_horizontal = 4
-mouse_filter = 2
-
-[node name="Body" type="ColorRect" parent="SpriteHolder" unique_id=1897567441]
-unique_name_in_owner = true
-layout_mode = 0
-offset_right = 260.0
-offset_bottom = 260.0
-pivot_offset = Vector2(130, 130)
-mouse_filter = 2
-
-[node name="Art" type="TextureRect" parent="SpriteHolder/Body" unique_id=1405588146]
+[node name="Body" type="ColorRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -38,18 +19,48 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_7bifa")
+color = Color(1, 1, 1, 0)
+
+[node name="Art" type="TextureRect" parent="Body"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="AttackLabel" type="Label" parent="." unique_id=1594916531]
+[node name="Info" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = 256.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="Info"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"CombatantNameLabel"
+text = "Name"
+horizontal_alignment = 1
+
+[node name="AttackLabel" type="Label" parent="Info"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"AttackValueLabel"
 text = "ATK 1"
 horizontal_alignment = 1
 
-[node name="WeaponLabel" type="Label" parent="." unique_id=1555832785]
+[node name="WeaponLabel" type="Label" parent="Info"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"WeaponLabel"
