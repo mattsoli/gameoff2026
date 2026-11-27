@@ -1,6 +1,21 @@
-[gd_resource type="Resource" script_class="AudioSettings" format=3]
+[gd_resource type="Resource" script_class="AudioSettings" format=3 uid="uid://3tnlkmvtj15t"]
 
-[ext_resource type="Script" path="res://src/settings/audio_settings.gd" id="1_q4cer"]
+[ext_resource type="AudioStream" uid="uid://ewyokcbjb21u" path="res://assets/sound/music/Main theme no drums and fisa.mp3" id="1_o3x4k"]
+[ext_resource type="Script" uid="uid://ut62xjeqll8s" path="res://src/settings/audio_settings.gd" id="1_q4cer"]
+[ext_resource type="AudioStream" uid="uid://wc16v7tc1bah" path="res://assets/sound/sfx/Combattimento perso.mp3" id="1_wrs77"]
+[ext_resource type="AudioStream" uid="uid://w1ycyogyot15" path="res://assets/sound/sfx/Combattimento vinto.mp3" id="2_v4a4l"]
+[ext_resource type="AudioStream" uid="uid://b06jcqov8vcid" path="res://assets/sound/sfx/Chiave presa.mp3" id="4_7psnb"]
+[ext_resource type="AudioStream" uid="uid://dd0uh1y4s4urq" path="res://assets/sound/sfx/Livello completato.mp3" id="5_x7nhi"]
+[ext_resource type="AudioStream" uid="uid://cvncsahg0o4p5" path="res://assets/sound/music/Main theme official.mp3" id="6_v4a4l"]
+[ext_resource type="AudioStream" uid="uid://dupxqj8iyh3xx" path="res://assets/sound/sfx/Ottenimento nuova arma.mp3" id="7_vfngt"]
 
 [resource]
 script = ExtResource("1_q4cer")
+menu_music = ExtResource("6_v4a4l")
+game_music = ExtResource("1_o3x4k")
+music_fade_duration = 0.7
+key_pickup = ExtResource("4_7psnb")
+weapon_pickup = ExtResource("7_vfngt")
+combat_win = ExtResource("2_v4a4l")
+combat_lose = ExtResource("1_wrs77")
+level_complete = ExtResource("5_x7nhi")

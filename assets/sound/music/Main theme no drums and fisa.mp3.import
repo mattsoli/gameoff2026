@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ewyokcbjb21u"
+path="res://.godot/imported/Main theme no drums and fisa.mp3-229b41def4331afe372f38d22d793e4d.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/Main theme no drums and fisa.mp3"
+dest_files=["res://.godot/imported/Main theme no drums and fisa.mp3-229b41def4331afe372f38d22d793e4d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
