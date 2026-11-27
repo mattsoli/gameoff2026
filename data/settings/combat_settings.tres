@@ -6,11 +6,13 @@
 
 [sub_resource type="Resource" id="Resource_t8jah"]
 script = ExtResource("1_7f3f5")
-duration = 0.1
+duration = 0.3
+transition = 2
 
 [sub_resource type="Resource" id="Resource_wg4r6"]
 script = ExtResource("1_7f3f5")
 duration = 0.15
+transition = 5
 easing = 0
 
 [sub_resource type="Resource" id="Resource_7f3f5"]
@@ -27,13 +29,13 @@ transition = 7
 [sub_resource type="Resource" id="Resource_b3atx"]
 script = ExtResource("1_7f3f5")
 duration = 0.07
-transition = 0
+transition = 3
 
 [sub_resource type="Resource" id="Resource_bmj36"]
 script = ExtResource("2_ds4yk")
 slide_offset = Vector2(600, 0)
 duration = 0.45
-transition = 7
+transition = 9
 
 [sub_resource type="Resource" id="Resource_dq1oe"]
 script = ExtResource("2_ds4yk")
@@ -56,7 +58,7 @@ easing = 0
 script = ExtResource("2_ds4yk")
 slide_offset = Vector2(-600, 0)
 duration = 0.45
-transition = 7
+transition = 9
 
 [sub_resource type="Resource" id="Resource_mxrrq"]
 script = ExtResource("2_ds4yk")
@@ -68,12 +70,12 @@ easing = 0
 script = ExtResource("2_ds4yk")
 slide_offset = Vector2(0, 20)
 duration = 0.3
-transition = 7
+transition = 1
 
 [resource]
 script = ExtResource("1_iunuj")
 pause_before_resolution = 0.5
-result_pause = 0.6
+result_pause = 1.1
 board_hide = SubResource("Resource_7f3f5")
 board_show = SubResource("Resource_ds4yk")
 intro = SubResource("Resource_3h1ka")
@@ -84,5 +86,7 @@ player_exit = SubResource("Resource_mxrrq")
 enemy_exit = SubResource("Resource_dq1oe")
 attack = SubResource("Resource_t8jah")
 attack_return = SubResource("Resource_wg4r6")
+attack_distance = 0.75
 defeat_blink = SubResource("Resource_b3atx")
+defeat_blink_color = Color(0.8590941, 0, 0.15645692, 1)
 result_appear = SubResource("Resource_mbglb")
