@@ -28,6 +28,7 @@ extends Resource
 @export_range(16.0, 1024.0, 1.0) var scene_reference_size: float = 256.0
 ## Scena del giocatore. Vuoto = la combat_scene del giocatore (o la sua combat_texture).
 @export var player_scene: PackedScene
+## Le scene vanno disegnate con i piedi in (0, 0), come quelle del combattimento.
 ## Scena animata della pecora. Animazioni usate: "idle", "run" (mentre scappa), "caught" (presa).
 @export var sheep_scene: PackedScene
 ## Immagine della pecora se non c'è una scena.

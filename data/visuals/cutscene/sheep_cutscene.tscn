@@ -124,6 +124,7 @@ _data = {
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1036733254]
 scale = Vector2(1.3061224, 1.3061224)
 texture = ExtResource("1_tbihx")
+offset = Vector2(0, -73.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=789109316]
 libraries/ = SubResource("AnimationLibrary_tj6mr")

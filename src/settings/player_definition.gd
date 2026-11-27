@@ -22,5 +22,7 @@ extends Resource
 ## Animazioni usate: "idle", "move" (a ogni passo), "bump" (contro un muro).
 @export var board_scene: PackedScene
 ## Scena animata nella schermata di combattimento (sostituisce combat_texture).
+## Va disegnata con i piedi in (0, 0) (il personaggio sta sopra l'origine), alta circa
+## CombatSettings.scene_reference_size: così le animazioni di scala partono dai piedi.
 ## Animazioni usate: "idle", "attack" (se vince), "defeat" (se perde).
 @export var combat_scene: PackedScene

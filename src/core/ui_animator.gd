@@ -9,6 +9,9 @@ extends RefCounted
 ## dopo play_out il controllo resta "fuori" finché non si chiama reset().
 
 const REST_POSITION_META: StringName = &"ui_rest_position"
+## Meta opzionale di un controllo: punto da cui scala, in frazione della sua dimensione
+## (default (0.5, 0.5) = centro). Es. StageActor usa (0.5, 1) = sotto i piedi.
+const PIVOT_META: StringName = &"ui_pivot"
 
 
 ## Nasconde subito il controllo se la transizione parte trasparente: evita che resti visibile
@@ -21,7 +24,7 @@ static func prepare_in(control: Control, transition: UiTransition) -> void:
 ## Fa comparire il controllo: dallo stato descritto dalla transizione alla posizione normale.
 static func play_in(control: Control, transition: UiTransition) -> void:
 	var rest_position: Vector2 = control.position
-	control.pivot_offset = control.size * 0.5
+	control.pivot_offset = control.size * _get_pivot(control)
 	if transition == null:
 		control.modulate.a = 1.0
 		return
@@ -39,7 +42,7 @@ static func play_in(control: Control, transition: UiTransition) -> void:
 ## Fa scomparire il controllo verso lo stato descritto dalla transizione.
 static func play_out(control: Control, transition: UiTransition) -> void:
 	control.set_meta(REST_POSITION_META, control.position)
-	control.pivot_offset = control.size * 0.5
+	control.pivot_offset = control.size * _get_pivot(control)
 	if transition == null:
 		return
 	var tween: Tween = control.create_tween().set_parallel(true)
@@ -48,6 +51,11 @@ static func play_out(control: Control, transition: UiTransition) -> void:
 	UiAnimation.tween_property(tween, control, "position", control.position + transition.slide_offset, transition)
 	UiAnimation.tween_property(tween, control, "scale", transition.start_scale, transition)
 	await tween.finished
+
+
+static func _get_pivot(control: Control) -> Vector2:
+	var pivot: Variant = control.get_meta(PIVOT_META, Vector2(0.5, 0.5))
+	return pivot if pivot is Vector2 else Vector2(0.5, 0.5)
 
 
 ## Riporta il controllo allo stato normale dopo un play_out (di solito dopo averlo nascosto).
