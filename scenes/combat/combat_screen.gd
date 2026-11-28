@@ -76,6 +76,7 @@ func _play_intro() -> void:
 		UiAnimator.reset(animated[i])
 		UiAnimator.prepare_in(animated[i], transitions[i])
 	visible = true
+	AudioManager.play_sfx(AudioManager.get_settings().combat_start)
 	await _play_together([
 		UiAnimator.play_in.bind(_backdrop, _settings.intro),
 		UiAnimator.play_in.bind(_title_label, _settings.intro),
@@ -102,7 +103,10 @@ func _play_resolution(result: CombatResult) -> void:
 	var winner: CombatantPanel = _player_panel if result.is_player_winner else _enemy_panel
 	var loser: CombatantPanel = _enemy_panel if result.is_player_winner else _player_panel
 	var direction_sign: float = signf(loser.position.x - winner.position.x)
+	var audio: AudioSettings = AudioManager.get_settings()
+	AudioManager.play_sfx(audio.attack)
 	await winner.play_attack(direction_sign if direction_sign != 0.0 else 1.0, _settings)
+	AudioManager.play_sfx(audio.combat_win if result.is_player_winner else audio.combat_lose)
 	await loser.play_defeat(_settings)
 
 
