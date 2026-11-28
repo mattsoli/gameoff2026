@@ -5,8 +5,12 @@ extends Resource
 ## I file audio (.ogg/.mp3/.wav) si trascinano dal FileSystem nei campi; per il Web usare .ogg o .mp3.
 ## Per far ripetere un brano attiva "Loop" nelle opzioni di import del file
 ## (oppure lascia attivo `loop_music` qui sotto).
-## Varianti e pitch casuale (es. passi tutti diversi): in un campo si può mettere un
-## AudioStreamRandomizer (New AudioStreamRandomizer) con più file e "Random Pitch".
+##
+## Varianti degli effetti: ogni effetto è già una lista di varianti (AudioStreamRandomizer).
+## Aprire il campo, aggiungere i file in "Streams": a ogni riproduzione ne viene scelto uno
+## a caso (Playback Mode "Random No Repeats" = mai lo stesso due volte di fila).
+## "Random Pitch" (es. 1.1 = fino a ±10%) e "Random Volume Offset dB" variano ogni riproduzione.
+## Lista vuota = nessun suono. Si può anche trascinare un singolo file al posto della lista.
 
 @export_group("Colonna sonora")
 ## Menu principale e schermata dei livelli.

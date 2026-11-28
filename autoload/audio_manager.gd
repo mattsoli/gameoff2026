@@ -66,14 +66,30 @@ func play_music(stream: AudioStream) -> void:
 
 
 ## Suona un effetto (null = nessun suono). Più effetti possono sovrapporsi.
+## Con un AudioStreamRandomizer ogni volta suona una variante a caso (con pitch/volume casuali
+## se impostati); una lista di varianti vuota vale come "nessun suono".
 func play_sfx(stream: AudioStream) -> void:
-	if stream == null:
+	if not has_sound(stream):
 		return
 	var player: AudioStreamPlayer = _sfx_players[_next_sfx_voice]
 	_next_sfx_voice = (_next_sfx_voice + 1) % _sfx_players.size()
 	player.stream = stream
 	player.play()
 	sfx_played.emit(stream)
+
+
+## True se `stream` produce un suono: non è null e, se è una lista di varianti
+## (AudioStreamRandomizer), contiene almeno un file.
+static func has_sound(stream: AudioStream) -> bool:
+	if stream == null:
+		return false
+	if stream is AudioStreamRandomizer:
+		var randomizer: AudioStreamRandomizer = stream as AudioStreamRandomizer
+		for i: int in randomizer.streams_count:
+			if randomizer.get_stream(i) != null:
+				return true
+		return false
+	return true
 
 
 func set_music_enabled(value: bool) -> void:

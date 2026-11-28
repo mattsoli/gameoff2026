@@ -1,6 +1,63 @@
-[gd_resource type="Resource" script_class="AudioSettings" format=3]
+[gd_resource type="Resource" script_class="AudioSettings" format=3 uid="uid://3tnlkmvtj15t"]
 
-[ext_resource type="Script" path="res://src/settings/audio_settings.gd" id="1_q4cer"]
+[ext_resource type="Script" uid="uid://ut62xjeqll8s" path="res://src/settings/audio_settings.gd" id="1_q4cer"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i0f20"]
+random_pitch = 1.08
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cmktt"]
+random_pitch = 1.08
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_afdje"]
+random_pitch = 1.08
+streams_count = 1
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pen7n"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wrs77"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v4a4l"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7psnb"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x7nhi"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vfngt"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_18btl"]
+random_pitch = 1.08
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y1g2g"]
+random_pitch = 1.08
+streams_count = 1
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0t1se"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_k5sht"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3enml"]
+random_pitch = 1.08
+streams_count = 1
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yoil0"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3a428"]
 
 [resource]
 script = ExtResource("1_q4cer")
+button_hover = SubResource("AudioStreamRandomizer_afdje")
+button_click = SubResource("AudioStreamRandomizer_cmktt")
+level_start = SubResource("AudioStreamRandomizer_vfngt")
+pawn_move = SubResource("AudioStreamRandomizer_y1g2g")
+pawn_bump = SubResource("AudioStreamRandomizer_18btl")
+shift = SubResource("AudioStreamRandomizer_3enml")
+key_pickup = SubResource("AudioStreamRandomizer_7psnb")
+weapon_pickup = SubResource("AudioStreamRandomizer_3a428")
+combat_start = SubResource("AudioStreamRandomizer_wrs77")
+attack = SubResource("AudioStreamRandomizer_i0f20")
+combat_win = SubResource("AudioStreamRandomizer_v4a4l")
+combat_lose = SubResource("AudioStreamRandomizer_pen7n")
+sheep_escape = SubResource("AudioStreamRandomizer_k5sht")
+sheep_caught = SubResource("AudioStreamRandomizer_0t1se")
+level_complete = SubResource("AudioStreamRandomizer_x7nhi")
+victory = SubResource("AudioStreamRandomizer_yoil0")

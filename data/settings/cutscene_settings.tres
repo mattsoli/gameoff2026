@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="CutsceneSettings" format=3]
+[gd_resource type="Resource" script_class="CutsceneSettings" format=3 uid="uid://q6liq45p358h"]
 
-[ext_resource type="Script" path="res://src/settings/ui/ui_transition.gd" id="1_tr14l"]
-[ext_resource type="Script" path="res://src/settings/ui/ui_animation.gd" id="2_d2oyw"]
+[ext_resource type="Script" uid="uid://cxef3gkjrdiuv" path="res://src/settings/ui/ui_transition.gd" id="1_tr14l"]
+[ext_resource type="Script" uid="uid://wdl32q0sit3m" path="res://src/settings/ui/ui_animation.gd" id="2_d2oyw"]
 [ext_resource type="PackedScene" path="res://data/visuals/cutscene/player_cutscene.tscn" id="3_uldg8"]
-[ext_resource type="Script" path="res://src/settings/cutscene_settings.gd" id="4_7v5ge"]
+[ext_resource type="Script" uid="uid://b446vwo1emnrj" path="res://src/settings/cutscene_settings.gd" id="4_7v5ge"]
 [ext_resource type="PackedScene" path="res://data/visuals/cutscene/sheep_cutscene.tscn" id="5_r2p6g"]
-[ext_resource type="Texture2D" path="res://assets/entities/Icona_pecora.png" id="6_dd0gr"]
+[ext_resource type="Texture2D" uid="uid://bo11ayq1hxteb" path="res://assets/entities/Icona_pecora.png" id="6_dd0gr"]
 
 [sub_resource type="Resource" id="Resource_lxoau"]
 script = ExtResource("1_tr14l")
