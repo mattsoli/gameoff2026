@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="KeyDefinition" format=3 uid="uid://bu7vlhgl1ttld"]
 
 [ext_resource type="Script" uid="uid://cl0ohfox0m4pe" path="res://src/settings/key_definition.gd" id="1_qa6lo"]
-[ext_resource type="Texture2D" uid="uid://pj8v8b46uakn" path="res://assets/Icona_chiave.png" id="2_0ew4g"]
+[ext_resource type="Texture2D" uid="uid://dxrocvs6ftr8g" path="res://assets/items/icona_chiave.png" id="2_0ew4g"]
 
 [resource]
 script = ExtResource("1_qa6lo")
