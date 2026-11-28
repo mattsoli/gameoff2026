@@ -6,6 +6,9 @@ extends Node
 
 signal music_enabled_changed(is_enabled: bool)
 signal sfx_enabled_changed(is_enabled: bool)
+## Emessi a ogni effetto suonato / brano avviato (utili per il debug dei trigger).
+signal sfx_played(stream: AudioStream)
+signal music_started(stream: AudioStream)
 
 const MUSIC_BUS: StringName = &"Music"
 const SFX_BUS: StringName = &"SFX"
@@ -70,6 +73,7 @@ func play_sfx(stream: AudioStream) -> void:
 	_next_sfx_voice = (_next_sfx_voice + 1) % _sfx_players.size()
 	player.stream = stream
 	player.play()
+	sfx_played.emit(stream)
 
 
 func set_music_enabled(value: bool) -> void:
@@ -100,6 +104,7 @@ func _switch_music(stream: AudioStream) -> void:
 	_music_player.volume_db = 0.0
 	if stream != null:
 		_music_player.play()
+	music_started.emit(stream)
 
 
 func _on_music_finished() -> void:

@@ -79,6 +79,7 @@ func _play_level_intro(ui: UiSettings) -> void:
 	UiAnimator.prepare_in(_board_view, ui.board_appear)
 	# La board sta in un CenterContainer: si anima dopo che è stata posizionata.
 	await get_tree().process_frame
+	AudioManager.play_sfx(_settings.get_audio().level_start)
 	UiAnimator.play_in(_hud, ui.hud_appear)
 	await UiAnimator.play_in(_board_view, ui.board_appear)
 	_is_busy = false
@@ -134,8 +135,8 @@ func _handle_combat(move: MoveResult) -> void:
 	# La board sparisce: il combattimento si svolge sullo sfondo.
 	await UiAnimator.play_out(_board_view, combat.board_hide)
 	_board_view.visible = false
+	# Gli effetti del combattimento (inizio, attacco, sconfitta) li suona CombatScreen.
 	var result: CombatResult = await _combat_screen.run_combat(player, enemy, combat)
-	AudioManager.play_sfx(audio.combat_win if result.is_player_winner else audio.combat_lose)
 	AudioManager.play_music(audio.game_music)
 	var arrival: ArrivalResult = _session.resolve_combat(result)
 	if not result.is_player_winner:
@@ -180,21 +181,26 @@ func _play_goal_cutscene() -> void:
 	if not cutscene.enabled:
 		return
 	await get_tree().create_timer(cutscene.pause_after_stop).timeout
+	var audio: AudioSettings = _settings.get_audio()
+	var is_last_level: bool = not RunManager.has_next_level()
+	AudioManager.play_music(audio.get_victory_music() if is_last_level else audio.get_cutscene_music())
 	await UiAnimator.play_out(_board_view, cutscene.board_hide)
 	_board_view.visible = false
-	await _goal_cutscene.play(_settings.player, RunManager.has_next_level(), cutscene)
+	await _goal_cutscene.play(_settings.player, not is_last_level, cutscene)
 
 
 func _show_level_completed() -> void:
 	var audio: AudioSettings = _settings.get_audio()
-	AudioManager.play_sfx(audio.level_complete)
-	AudioManager.play_music(audio.get_level_complete_music())
 	if RunManager.has_next_level():
+		AudioManager.play_sfx(audio.level_complete)
+		AudioManager.play_music(audio.get_level_complete_music())
 		if await _result_overlay.ask(level_completed_title, "", next_level_text, menu_text):
 			RunManager.advance_to_next_level()
 		else:
 			RunManager.go_to_main_menu()
 	else:
+		AudioManager.play_sfx(audio.get_victory_sfx())
+		AudioManager.play_music(audio.get_victory_music())
 		await _result_overlay.ask(victory_title, victory_message, menu_text)
 		RunManager.go_to_main_menu()
 
