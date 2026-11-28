@@ -16,6 +16,10 @@ const DEFEAT: StringName = &"defeat"
 const PICKUP: StringName = &"pickup"
 const UNLOCK: StringName = &"unlock"
 const UNLOCKED: StringName = &"unlocked"
+# Cut scene di fine livello.
+const RUN: StringName = &"run"
+const CATCH: StringName = &"catch"
+const CAUGHT: StringName = &"caught"
 # Pulsanti.
 const HOVER: StringName = &"hover"
 const UNHOVER: StringName = &"unhover"

@@ -21,6 +21,7 @@ var _is_busy: bool = false
 @onready var _board_view: BoardView = %BoardView
 @onready var _hud: GameHud = %Hud
 @onready var _combat_screen: CombatScreen = %CombatScreen
+@onready var _goal_cutscene: GoalCutscene = %GoalCutscene
 @onready var _result_overlay: ResultOverlay = %ResultOverlay
 
 
@@ -109,7 +110,12 @@ func _request_move(direction: Direction.Type, show_blocked_feedback: bool) -> vo
 			await _board_view.play_pawn_bump(direction)
 		MoveResult.Type.MOVED:
 			AudioManager.play_sfx(_settings.get_audio().pawn_move)
-			await _board_view.play_pawn_move(move.to)
+			if _is_cutscene_goal(move.to):
+				# Verso la pecora la pedina si ferma a metà: il resto lo racconta la cut scene.
+				var cutscene: CutsceneSettings = _settings.get_cutscene()
+				await _board_view.play_pawn_stop(move.to, cutscene.pawn_stop_fraction, cutscene.pawn_stop)
+			else:
+				await _board_view.play_pawn_move(move.to)
 			await _handle_arrival(_session.arrive())
 		MoveResult.Type.COMBAT:
 			AudioManager.play_sfx(_settings.get_audio().pawn_move)
@@ -156,10 +162,27 @@ func _handle_arrival(arrival: ArrivalResult) -> void:
 	_refresh()
 
 	if arrival.reached_goal:
+		await _play_goal_cutscene()
 		await _show_level_completed()
 	elif arrival.shift != null:
 		AudioManager.play_sfx(audio.shift)
 		await _board_view.play_shift(arrival.shift)
+
+
+func _is_cutscene_goal(cell: Vector2i) -> bool:
+	return _settings.get_cutscene().enabled and _session.board.get_cell(cell).tile.is_goal
+
+
+## Cut scene di fine livello: la board sparisce, poi la pecora scappa (o, nell'ultimo livello,
+## viene presa). La cut scene resta sotto la finestra di fine livello.
+func _play_goal_cutscene() -> void:
+	var cutscene: CutsceneSettings = _settings.get_cutscene()
+	if not cutscene.enabled:
+		return
+	await get_tree().create_timer(cutscene.pause_after_stop).timeout
+	await UiAnimator.play_out(_board_view, cutscene.board_hide)
+	_board_view.visible = false
+	await _goal_cutscene.play(_settings.player, RunManager.has_next_level(), cutscene)
 
 
 func _show_level_completed() -> void:

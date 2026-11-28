@@ -11,7 +11,8 @@ extends EntityDefinition
 ## Sprite nella schermata di combattimento. Se vuota usa il colore dell'icona.
 @export var combat_texture: Texture2D
 ## Scena animata nella schermata di combattimento (sostituisce combat_texture).
-## Va disegnata centrata in (0, 0) per un riquadro grande CombatSettings.scene_reference_size.
+## Va disegnata con i piedi in (0, 0) (il personaggio sta sopra l'origine), alta circa
+## CombatSettings.scene_reference_size: così le animazioni di scala partono dai piedi.
 ## Animazioni usate: "idle", "attack" (se vince), "defeat" (se perde).
 @export var combat_scene: PackedScene
 

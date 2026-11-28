@@ -160,6 +160,7 @@ _data = {
 [node name="Sprite" type="Sprite2D" parent="." unique_id=291705745]
 scale = Vector2(0.35870206, 0.35870206)
 texture = ExtResource("1_5pdgo")
+offset = Vector2(0, -339)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=949637500]
 libraries/ = SubResource("AnimationLibrary_j3mf1")
